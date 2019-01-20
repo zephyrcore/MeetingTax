@@ -14,3 +14,4 @@ Initial release.
 - Focus fragmentation: per person per day longest free block within a workday
   window, and a count of days below a declared threshold.
 - Recurring series analysis that flags standing invites whose shape never
+  changes.
