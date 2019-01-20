@@ -9,3 +9,5 @@ Initial release.
 - iCalendar reader with line unfolding, TEXT escaping, DATE and DATE-TIME
   parsing with and without a TZID parameter, DURATION parsing, and VEVENT
   extraction.
+- RRULE support for the DAILY and WEEKLY cases with COUNT, INTERVAL, UNTIL and
+  BYDAY. Other frequencies are reported as skipped rather than mishandled.
