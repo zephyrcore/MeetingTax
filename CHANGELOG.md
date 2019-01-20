@@ -7,3 +7,4 @@ All notable changes to this project are recorded here.
 Initial release.
 
 - iCalendar reader with line unfolding, TEXT escaping, DATE and DATE-TIME
+  parsing with and without a TZID parameter, DURATION parsing, and VEVENT
