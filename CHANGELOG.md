@@ -11,3 +11,4 @@ Initial release.
   extraction.
 - RRULE support for the DAILY and WEEKLY cases with COUNT, INTERVAL, UNTIL and
   BYDAY. Other frequencies are reported as skipped rather than mishandled.
+- Focus fragmentation: per person per day longest free block within a workday
