@@ -15,3 +15,4 @@ Initial release.
   window, and a count of days below a declared threshold.
 - Recurring series analysis that flags standing invites whose shape never
   changes.
+- CLI subcommands: load, focus, recurring, version.
