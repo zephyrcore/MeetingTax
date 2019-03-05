@@ -58,3 +58,17 @@ people who each spend three hours in meetings. The first has a single three hour
 block in the morning and a clear afternoon. The second has six half hour
 meetings sprinkled from nine to four, each one landing in the middle of whatever
 they were trying to do. Both show three hours of meetings on a report that
+counts hours. Only one of them had a chance to do focused work.
+
+The second person paid a tax that the hours total never records. Every meeting
+carries a setup and teardown cost around it: the few minutes before to prepare,
+the longer stretch after to recover the thread of the interrupted work. A day
+diced into small pieces is nearly useless for anything that needs sustained
+attention, even when the raw meeting hours look modest.
+
+meetingtax measures the shape, not just the total. It finds the longest
+uninterrupted free block each person had on each day, compares it against a
+threshold you declare, and counts the days that fall short. It also surfaces the
+two habits that quietly generate fragmentation: meetings booked to a round slot
+that did not need the whole slot, and standing recurring invites that nobody has
+revisited since they were created.
