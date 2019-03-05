@@ -45,3 +45,16 @@ declared as the minimum for real work.
 - [Repository layout](#repository-layout)
 - [Glossary](#glossary)
 - [Integration notes](#integration-notes)
+- [Verification](#verification)
+- [Limitations](#limitations)
+- [Roadmap](#roadmap)
+- [License](#license)
+
+## The problem
+
+You suspect meetings are eating your team, but the only number anyone can quote
+is the total hours booked. That number hides the shape of the day. Consider two
+people who each spend three hours in meetings. The first has a single three hour
+block in the morning and a clear afternoon. The second has six half hour
+meetings sprinkled from nine to four, each one landing in the middle of whatever
+they were trying to do. Both show three hours of meetings on a report that
