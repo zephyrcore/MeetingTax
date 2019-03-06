@@ -72,3 +72,16 @@ threshold you declare, and counts the days that fall short. It also surfaces the
 two habits that quietly generate fragmentation: meetings booked to a round slot
 that did not need the whole slot, and standing recurring invites that nobody has
 revisited since they were created.
+
+## What it measures
+
+meetingtax reports four things.
+
+1. Total meeting hours across everyone, and per person.
+2. The count of meetings that fill a standard slot and could plausibly have been
+   shorter.
+3. Recurring meetings whose attendee set and duration never change across the
+   series.
+4. Focus time fragmentation: the longest uninterrupted free block per person per
+   day, and how many days have no block longer than a declared threshold.
+
