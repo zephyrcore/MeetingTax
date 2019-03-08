@@ -85,3 +85,16 @@ meetingtax reports four things.
 4. Focus time fragmentation: the longest uninterrupted free block per person per
    day, and how many days have no block longer than a declared threshold.
 
+The fourth is the one the tool is built around. The first three are the context
+that explains it.
+
+## Install
+
+meetingtax targets Python 3.11 and uses only the standard library. There are no
+third party runtime dependencies and the code makes no network calls.
+
+You can run it straight from a checkout without installing anything, by putting
+the `src` directory on the path:
+
+```
+PYTHONPATH=src python -m meetingtax version
