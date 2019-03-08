@@ -98,3 +98,17 @@ the `src` directory on the path:
 
 ```
 PYTHONPATH=src python -m meetingtax version
+```
+
+Or install it so the `meetingtax` console script is on your path:
+
+```
+pip install .
+```
+
+## Quick start
+
+Run the load report against the bundled sample:
+
+```
+PYTHONPATH=src python -m meetingtax load samples/team-calendar.ics
