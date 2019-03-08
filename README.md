@@ -112,3 +112,16 @@ Run the load report against the bundled sample:
 
 ```
 PYTHONPATH=src python -m meetingtax load samples/team-calendar.ics
+```
+
+```
+meetingtax load report
+workday window: 09:00 to 17:00
+
+occurrences (person instances): 33
+distinct meeting slots: 17
+total person meeting hours: 19h00
+meetings longer than 25 minutes ending on the hour or half: 17
+
+people seen: 3
+  Ada Lovelace: 7h30
