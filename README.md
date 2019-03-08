@@ -125,3 +125,16 @@ meetings longer than 25 minutes ending on the hour or half: 17
 
 people seen: 3
   Ada Lovelace: 7h30
+  Bao Nguyen: 6h30
+  Chen Wei: 5h00
+
+recurrence rules not expanded: 1
+  monthly-review@meetingtax.example (MONTHLY): FREQ=MONTHLY is not expanded; only the first instance is counted
+```
+
+## The three reports
+
+Each report reads the same `.ics` file and answers a different question.
+
+The `load` report is the overview: how much meeting time exists, how many
+distinct meetings there are once recurrence is expanded, how it splits across
