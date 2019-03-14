@@ -138,3 +138,17 @@ Each report reads the same `.ics` file and answers a different question.
 
 The `load` report is the overview: how much meeting time exists, how many
 distinct meetings there are once recurrence is expanded, how it splits across
+people, and which recurrence rules the tool declined to expand.
+
+The `focus` report is the heart of the tool: per person, per day, the longest
+free block and whether it cleared the threshold.
+
+The `recurring` report lists every recurring series and marks the stale ones.
+
+## Output fields
+
+The `load` report fields, in order.
+
+| Field | Meaning |
+| --- | --- |
+| occurrences (person instances) | One row per person per meeting instance after recurrence expansion. |
