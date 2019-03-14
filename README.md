@@ -152,3 +152,16 @@ The `load` report fields, in order.
 | Field | Meaning |
 | --- | --- |
 | occurrences (person instances) | One row per person per meeting instance after recurrence expansion. |
+| distinct meeting slots | Meeting instances counted once, ignoring how many people attend. |
+| total person meeting hours | Sum of every person instance duration, so a one hour meeting with three people is three person hours. |
+| meetings longer than 25 minutes ending on the hour or half | Count of distinct slots that look booked to a round slot rather than to the work. |
+| people seen | Number of distinct organizers and attendees. |
+| per person hours | Each person's own share of person meeting hours. |
+| recurrence rules not expanded | Series whose FREQ this tool does not expand, listed with the reason. |
+
+The `focus` report fields, per day line.
+
+| Field | Meaning |
+| --- | --- |
+| date | The calendar day in ISO form. |
+| meetings | Number of meeting instances that touch this person on this day. |
