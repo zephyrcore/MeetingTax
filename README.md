@@ -165,3 +165,17 @@ The `focus` report fields, per day line.
 | --- | --- |
 | date | The calendar day in ISO form. |
 | meetings | Number of meeting instances that touch this person on this day. |
+| longest | The longest uninterrupted free block inside the workday window, as HhMM. |
+| block | The clock span of that longest free block, or `none` if there is no free time. |
+| flag | `FRAGMENTED` when the longest block is below the threshold, `ok` otherwise. |
+
+The `recurring` report fields, per series line.
+
+| Field | Meaning |
+| --- | --- |
+| uid | The VEVENT UID of the series. |
+| freq and interval | The recurrence frequency and interval from the RRULE. |
+| attendees | Number of distinct people on the series. |
+| duration | The length of one instance, as HhMM. |
+| state | `STALE` for an expanded repeating series, `skipped` for a rule not expanded, `ok` otherwise. |
+
