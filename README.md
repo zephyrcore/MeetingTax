@@ -192,3 +192,16 @@ Monday:
 - 13:00 to 13:30 One to one
 - 14:00 to 14:30 Roadmap check, part two
 - 14:00 to 15:00 Monthly business review (first instance, organized by Chen)
+- 15:30 to 16:00 Incident retro
+
+The tool clips these to the 09:00 to 17:00 window, merges any overlaps, and
+walks the gaps. The busy time runs solid from 09:00 to 10:30, then there are
+short gaps and short meetings through the afternoon. The longest gap that
+survives is 11:30 to 13:00, which is 90 minutes. That is Ada's longest focus
+block for the day.
+
+Run the focus report and Ada's Monday line reads:
+
+```
+  2026-09-07  meetings=8  longest=1h30  block=11:30 to 13:00  FRAGMENTED
+```
