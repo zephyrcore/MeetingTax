@@ -179,3 +179,16 @@ The `recurring` report fields, per series line.
 | duration | The length of one instance, as HhMM. |
 | state | `STALE` for an expanded repeating series, `skipped` for a rule not expanded, `ok` otherwise. |
 
+## A worked walkthrough
+
+Follow Ada through the sample. Her fragmented day is 2026-09-07. The source file
+gives her these meetings that day, once the weekly standup is expanded onto the
+Monday:
+
+- 09:00 to 09:30 Standup sync
+- 09:30 to 10:00 Weekly team standup
+- 10:00 to 10:30 Design review
+- 11:00 to 11:30 Vendor call
+- 13:00 to 13:30 One to one
+- 14:00 to 14:30 Roadmap check, part two
+- 14:00 to 15:00 Monthly business review (first instance, organized by Chen)
