@@ -205,3 +205,17 @@ Run the focus report and Ada's Monday line reads:
 ```
   2026-09-07  meetings=8  longest=1h30  block=11:30 to 13:00  FRAGMENTED
 ```
+
+Ninety minutes is below the declared threshold of 120, so the day is flagged
+FRAGMENTED. Contrast her next day:
+
+```
+  2026-09-08  meetings=1  longest=7h30  block=09:30 to 17:00  ok
+```
+
+One short meeting at the start of the day leaves seven and a half hours clear.
+That is a protected day. The two lines side by side are the entire point of the
+tool: same person, similar meeting hours over the two days, completely different
+attention cost.
+
+## How focus fragmentation is computed
