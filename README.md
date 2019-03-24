@@ -219,3 +219,16 @@ tool: same person, similar meeting hours over the two days, completely different
 attention cost.
 
 ## How focus fragmentation is computed
+
+The algorithm is small and the edge cases are where the care goes.
+
+1. Group every occurrence by person and by calendar day.
+2. For each person day, take the workday window (09:00 to 17:00 by default).
+3. Clip every meeting to that window. A meeting from 08:00 to 09:30 contributes
+   only its 09:00 to 09:30 portion. A meeting entirely outside the window
+   contributes nothing.
+4. Merge overlapping or touching busy intervals so a double booking does not
+   count twice and does not create a phantom zero length gap between two
+   meetings that abut.
+5. Walk from the start of the window across the merged busy intervals, recording
+   each gap as a free block, and add the tail from the last meeting to the end
