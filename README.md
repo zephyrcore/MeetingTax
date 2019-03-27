@@ -259,3 +259,16 @@ from one or two meetings landing in the middle of the day, the lever is moving
 them. If a person is fragmented most days, the meeting load itself is the
 problem, and the `load` and `recurring` reports point at what to cut.
 
+The data graphic below shows each person's longest focus block on the sample
+fragmented day against the threshold. Ada's bar is the one that falls short.
+
+![Horizontal bar chart of the longest daily focus block per person on
+2026-09-07: Ada 90 minutes below the 120 minute threshold, Bao 150 minutes, Chen
+180 minutes](docs/assets/focus-fragmentation.svg)
+
+## Recurrence support and its honest limits
+
+meetingtax expands the two recurrence frequencies that cover most standing
+meetings, and it refuses to guess at the rest.
+
+Supported and expanded:
