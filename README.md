@@ -232,3 +232,16 @@ The algorithm is small and the edge cases are where the care goes.
    meetings that abut.
 5. Walk from the start of the window across the merged busy intervals, recording
    each gap as a free block, and add the tail from the last meeting to the end
+   of the window.
+6. The longest free block is the maximum over those gaps.
+
+The edge case that makes this more than a subtraction is overlap and adjacency.
+If two meetings overlap, their union is busy, not the sum of their lengths. If
+one meeting ends exactly when the next begins, there is no free block between
+them even though there are two intervals. Merging first, then walking, handles
+both cleanly. Meetings outside the window are dropped rather than clamped to zero
+length, so an early morning call does not silently shorten the measured day.
+
+When the data is ambiguous, the tool prefers to under-claim free time rather than
+over-claim it. A meeting with a start but no end and no duration is dropped
+entirely, because guessing its length could invent free time that does not
