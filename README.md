@@ -245,3 +245,17 @@ length, so an early morning call does not silently shorten the measured day.
 When the data is ambiguous, the tool prefers to under-claim free time rather than
 over-claim it. A meeting with a start but no end and no duration is dropped
 entirely, because guessing its length could invent free time that does not
+exist.
+
+## Reading the focus report
+
+A `FRAGMENTED` line is a prompt, not a verdict. It says this person had no single
+stretch on this day long enough for the kind of work you decided needs
+protecting. The action depends on why.
+
+If the fragmentation comes from many short meetings, the lever is scheduling:
+stack the meetings against one edge of the day so the rest is clear. If it comes
+from one or two meetings landing in the middle of the day, the lever is moving
+them. If a person is fragmented most days, the meeting load itself is the
+problem, and the `load` and `recurring` reports point at what to cut.
+
