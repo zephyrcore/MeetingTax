@@ -286,3 +286,16 @@ Parsed but not expanded:
 
 When a series has no COUNT and no UNTIL, an expanded rule is bounded to a fixed
 horizon so the output stays finite. The bound is a fixed number of steps, not a
+wall-clock date, so identical input always produces identical output.
+
+This is a deliberate refusal. A calendar tool that silently mishandles a monthly
+rule is worse than one that says plainly which rules it does not expand.
+
+## Exit codes
+
+The exit code lets you wire the tool into a script or a check without parsing its
+text.
+
+| Code | Meaning |
+| --- | --- |
+| 0 | Clean. No findings for this subcommand. |
