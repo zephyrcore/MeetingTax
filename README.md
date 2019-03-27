@@ -272,3 +272,17 @@ meetingtax expands the two recurrence frequencies that cover most standing
 meetings, and it refuses to guess at the rest.
 
 Supported and expanded:
+
+- `FREQ=DAILY` with `INTERVAL`, `COUNT`, and `UNTIL`.
+- `FREQ=WEEKLY` with `INTERVAL`, `COUNT`, `UNTIL`, and `BYDAY`.
+
+Parsed but not expanded:
+
+- `FREQ=MONTHLY` and `FREQ=YEARLY`. These carry rules such as BYMONTHDAY,
+  BYSETPOS, and BYDAY ordinals that are easy to get subtly wrong. Rather than
+  produce plausible looking but incorrect dates, the tool counts only the first
+  instance and lists the series under recurrence rules not expanded, with the
+  frequency named.
+
+When a series has no COUNT and no UNTIL, an expanded rule is bounded to a fixed
+horizon so the output stays finite. The bound is a fixed number of steps, not a
