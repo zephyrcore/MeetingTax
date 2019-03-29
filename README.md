@@ -312,3 +312,17 @@ These are the choices that shaped the tool, with the alternative that was
 rejected.
 
 Wall-clock time, not converted time zones. A TZID parameter and a trailing Z are
+recorded on the parsed value but not applied. The rejected alternative was to
+convert every event into one canonical zone. That is correct for a shared
+timeline, but wrong for the question the tool asks. Fragmentation is about a
+person's own day as they live it, from nine to five in their own chair. Their
+09:00 is their 09:00 regardless of what UTC says. Converting would move meetings
+across day boundaries and distort exactly the thing being measured. The cost is
+that a genuinely cross zone meeting is placed by its literal clock value, which
+is stated here as a limitation.
+
+A person instance model, not an event model. Every report works on occurrences,
+which are one meeting on one day for one person, rather than on raw events. The
+rejected alternative was to keep events whole and special case recurrence and
+attendees in each report. Expanding once, up front, means the fragmentation code
+never has to think about recurrence at all, and person hours fall out naturally.
