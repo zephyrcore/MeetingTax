@@ -299,3 +299,16 @@ text.
 | Code | Meaning |
 | --- | --- |
 | 0 | Clean. No findings for this subcommand. |
+| 1 | Findings present: a fragmented day, a stale series, or a skipped rule, depending on the subcommand. |
+| 2 | Usage error: a missing file, an unreadable calendar, or bad arguments. |
+
+For the sample, `load` exits 1 because one rule was skipped, `focus` exits 1
+because one day is fragmented, `recurring` exits 1 because one series is stale,
+and `version` exits 0.
+
+## Design decisions
+
+These are the choices that shaped the tool, with the alternative that was
+rejected.
+
+Wall-clock time, not converted time zones. A TZID parameter and a trailing Z are
