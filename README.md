@@ -339,3 +339,16 @@ tool can do from a calendar alone. The heuristic flags the pattern of booking to
 a round slot and names itself a heuristic so nobody mistakes it for a judgment
 about a specific meeting.
 
+Refuse unsupported recurrence loudly. The rejected alternative was a best effort
+expansion of monthly and yearly rules. Best effort on recurrence is how calendars
+end up with meetings on the wrong day. Naming the skipped rule is more useful
+than a wrong date.
+
+## Repository layout
+
+```
+meetingtax/
+  README.md                      this file
+  LICENSE                        MIT, holder Zephyr
+  CHANGELOG.md                   release notes
+  pyproject.toml                 setuptools, src layout, console script
