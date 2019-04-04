@@ -326,3 +326,16 @@ which are one meeting on one day for one person, rather than on raw events. The
 rejected alternative was to keep events whole and special case recurrence and
 attendees in each report. Expanding once, up front, means the fragmentation code
 never has to think about recurrence at all, and person hours fall out naturally.
+
+Merge then walk, not subtract. Free time could be computed as window length
+minus busy length. That was rejected because it gives the total free time, not
+the longest single block, and the longest block is the whole point. Walking the
+merged intervals gives the blocks themselves.
+
+A round slot heuristic, stated as a heuristic. The could-be-shorter count keys
+on meetings longer than 25 minutes whose length is an exact multiple of 30. The
+rejected alternative was to claim to know which meetings were too long, which no
+tool can do from a calendar alone. The heuristic flags the pattern of booking to
+a round slot and names itself a heuristic so nobody mistakes it for a judgment
+about a specific meeting.
+
