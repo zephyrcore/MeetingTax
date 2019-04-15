@@ -352,3 +352,17 @@ meetingtax/
   LICENSE                        MIT, holder Zephyr
   CHANGELOG.md                   release notes
   pyproject.toml                 setuptools, src layout, console script
+  .gitignore                     ignores build and cache artifacts
+  src/meetingtax/
+    __init__.py                  package version
+    __main__.py                  python -m meetingtax entry point
+    cli.py                       argparse subcommands and exit codes
+    ics.py                       iCalendar reader: unfold, escape, dates, RRULE
+    events.py                    occurrence and recurrence expansion
+    fragments.py                 per person per day free block computation
+    recurring.py                 stale recurring series analysis
+    report.py                    line oriented report formatting
+  tests/
+    test_ics.py                  parser unit tests
+    test_events.py               expansion unit tests
+    test_fragments.py            free block unit tests
