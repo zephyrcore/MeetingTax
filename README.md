@@ -366,3 +366,16 @@ meetingtax/
     test_ics.py                  parser unit tests
     test_events.py               expansion unit tests
     test_fragments.py            free block unit tests
+    test_recurring.py            recurring analysis unit tests
+  samples/
+    team-calendar.ics            hand authored test vector
+    README.md                    how the fixture was built
+  docs/assets/
+    logo.svg                     wordmark with a day strip mark
+    focus-fragmentation.svg      longest focus block per person, real numbers
+```
+
+## Glossary
+
+Occurrence. One meeting on one day for one person. The unit every report works
+on after expansion.
