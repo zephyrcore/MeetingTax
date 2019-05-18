@@ -393,3 +393,16 @@ work, in minutes, adjustable with `--threshold`.
 
 Fragmented day. A person day whose longest free block is below the threshold.
 
+Stale series. A recurring meeting this tool expanded that repeats without its
+attendee set or duration ever changing.
+
+Person hours. Meeting duration summed across attendees, so a one hour meeting
+with three people is three person hours.
+
+## Integration notes
+
+The exit codes make the tool usable as a check. In a scheduled job you might run
+`focus` and treat exit 1 as a signal to post the fragmented days to a channel,
+while exit 2 means the export itself failed and needs a human.
+
+Because output is line oriented and deterministic, two runs diff cleanly. Save a
