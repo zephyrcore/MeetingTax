@@ -379,3 +379,17 @@ meetingtax/
 
 Occurrence. One meeting on one day for one person. The unit every report works
 on after expansion.
+
+Workday window. The clock range within which focus is measured, 09:00 to 17:00
+by default, adjustable with `--day-start` and `--day-end`.
+
+Free block. A gap inside the workday window with no meeting in it.
+
+Longest free block. The single longest such gap on a given person day. The
+measure of how much uninterrupted time was available.
+
+Threshold. The minimum longest free block you declare as enough for real focused
+work, in minutes, adjustable with `--threshold`.
+
+Fragmented day. A person day whose longest free block is below the threshold.
+
