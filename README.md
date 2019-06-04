@@ -406,3 +406,16 @@ The exit codes make the tool usable as a check. In a scheduled job you might run
 while exit 2 means the export itself failed and needs a human.
 
 Because output is line oriented and deterministic, two runs diff cleanly. Save a
+report to a file, commit it, and a later run produces a diff that shows exactly
+which days changed shape. There is no timestamp or random ordering in the output
+to create noise in that diff.
+
+## Verification
+
+Run the test suite from the project root:
+
+```
+PYTHONPATH=src python -m unittest discover -s tests -v
+```
+
+The suite has 36 tests across four files. They cover line unfolding and its
