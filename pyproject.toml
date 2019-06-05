@@ -5,3 +5,5 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "meetingtax"
 version = "0.1.0"
+description = "Measure the attention cost of meetings from iCalendar exports."
+readme = "README.md"
