@@ -10,3 +10,5 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Zephyr" }]
+keywords = ["calendar", "icalendar", "meetings", "focus-time", "scheduling"]
+classifiers = [
