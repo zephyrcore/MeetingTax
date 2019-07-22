@@ -17,3 +17,5 @@ classifiers = [
     "Topic :: Office/Business :: Scheduling",
 ]
 
+[project.scripts]
+meetingtax = "meetingtax.cli:main"
