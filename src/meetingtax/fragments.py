@@ -24,3 +24,12 @@ class Workday:
     start_hour: int = 9
     start_minute: int = 0
     end_hour: int = 17
+    end_minute: int = 0
+
+    def window(self, day: _dt.date) -> tuple[_dt.datetime, _dt.datetime]:
+        start = _dt.datetime(
+            day.year, day.month, day.day, self.start_hour, self.start_minute
+        )
+        end = _dt.datetime(day.year, day.month, day.day, self.end_hour, self.end_minute)
+        return start, end
+
