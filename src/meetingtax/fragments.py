@@ -42,3 +42,11 @@ class Workday:
 
 @dataclass
 class DayFocus:
+    """Focus analysis for one person on one day."""
+
+    attendee: str
+    day: _dt.date
+    meeting_count: int
+    busy_minutes: int
+    longest_free_minutes: int
+    free_blocks: list[tuple[_dt.datetime, _dt.datetime]] = field(default_factory=list)
