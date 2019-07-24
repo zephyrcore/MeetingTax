@@ -33,3 +33,12 @@ class Workday:
         end = _dt.datetime(day.year, day.month, day.day, self.end_hour, self.end_minute)
         return start, end
 
+    @property
+    def total_minutes(self) -> int:
+        start = self.start_hour * 60 + self.start_minute
+        end = self.end_hour * 60 + self.end_minute
+        return max(0, end - start)
+
+
+@dataclass
+class DayFocus:
