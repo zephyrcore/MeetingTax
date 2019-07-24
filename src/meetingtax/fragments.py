@@ -16,3 +16,11 @@ from dataclasses import dataclass, field
 
 from meetingtax.events import Occurrence
 
+
+@dataclass(frozen=True)
+class Workday:
+    """The window each day within which focus time is measured."""
+
+    start_hour: int = 9
+    start_minute: int = 0
+    end_hour: int = 17
