@@ -50,3 +50,12 @@ class DayFocus:
     busy_minutes: int
     longest_free_minutes: int
     free_blocks: list[tuple[_dt.datetime, _dt.datetime]] = field(default_factory=list)
+
+    @property
+    def longest_free_block(self) -> tuple[_dt.datetime, _dt.datetime] | None:
+        if not self.free_blocks:
+            return None
+        return max(self.free_blocks, key=lambda b: b[1] - b[0])
+
+
+def _merge_intervals(
