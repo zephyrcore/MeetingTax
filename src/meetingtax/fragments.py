@@ -59,3 +59,12 @@ class DayFocus:
 
 
 def _merge_intervals(
+    intervals: list[tuple[_dt.datetime, _dt.datetime]],
+) -> list[tuple[_dt.datetime, _dt.datetime]]:
+    """Merge overlapping or touching busy intervals into disjoint ones."""
+    if not intervals:
+        return []
+    ordered = sorted(intervals, key=lambda iv: iv[0])
+    merged = [ordered[0]]
+    for start, end in ordered[1:]:
+        last_start, last_end = merged[-1]
