@@ -76,3 +76,12 @@ def _merge_intervals(
 
 
 def _clip(
+    interval: tuple[_dt.datetime, _dt.datetime],
+    window: tuple[_dt.datetime, _dt.datetime],
+) -> tuple[_dt.datetime, _dt.datetime] | None:
+    """Clip a busy interval to the workday window, or drop it if outside."""
+    start = max(interval[0], window[0])
+    end = min(interval[1], window[1])
+    if start >= end:
+        return None
+    return (start, end)
