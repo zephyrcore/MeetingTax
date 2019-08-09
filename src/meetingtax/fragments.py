@@ -85,3 +85,12 @@ def _clip(
     if start >= end:
         return None
     return (start, end)
+
+
+def compute_day(
+    attendee: str,
+    day: _dt.date,
+    occurrences: list[Occurrence],
+    workday: Workday,
+) -> DayFocus:
+    """Compute the free blocks and the longest one for a single day."""
