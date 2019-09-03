@@ -94,3 +94,11 @@ def compute_day(
     workday: Workday,
 ) -> DayFocus:
     """Compute the free blocks and the longest one for a single day."""
+    window = workday.window(day)
+    busy_raw = [(o.start, o.end) for o in occurrences]
+    clipped = [c for c in (_clip(iv, window) for iv in busy_raw) if c is not None]
+    busy = _merge_intervals(clipped)
+
+    busy_minutes = sum(int((e - s).total_seconds() // 60) for s, e in busy)
+
+    free_blocks: list[tuple[_dt.datetime, _dt.datetime]] = []
