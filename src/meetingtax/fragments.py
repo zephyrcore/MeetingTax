@@ -102,3 +102,12 @@ def compute_day(
     busy_minutes = sum(int((e - s).total_seconds() // 60) for s, e in busy)
 
     free_blocks: list[tuple[_dt.datetime, _dt.datetime]] = []
+    cursor = window[0]
+    for start, end in busy:
+        if start > cursor:
+            free_blocks.append((cursor, start))
+        cursor = max(cursor, end)
+    if cursor < window[1]:
+        free_blocks.append((cursor, window[1]))
+
+    longest = 0
