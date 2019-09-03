@@ -111,3 +111,12 @@ def compute_day(
         free_blocks.append((cursor, window[1]))
 
     longest = 0
+    for start, end in free_blocks:
+        minutes = int((end - start).total_seconds() // 60)
+        longest = max(longest, minutes)
+
+    return DayFocus(
+        attendee=attendee,
+        day=day,
+        meeting_count=len(occurrences),
+        busy_minutes=busy_minutes,
