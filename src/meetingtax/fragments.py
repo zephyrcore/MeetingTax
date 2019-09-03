@@ -120,3 +120,11 @@ def compute_day(
         day=day,
         meeting_count=len(occurrences),
         busy_minutes=busy_minutes,
+        longest_free_minutes=longest,
+        free_blocks=free_blocks,
+    )
+
+
+def compute_all(
+    occurrences: list[Occurrence],
+    workday: Workday,
