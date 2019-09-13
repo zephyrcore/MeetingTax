@@ -146,3 +146,11 @@ class PersonFocus:
     """A person's focus summary across all their meeting days."""
 
     attendee: str
+    days: list[DayFocus]
+    threshold_minutes: int
+
+    @property
+    def best_longest_free_minutes(self) -> int:
+        return max((d.longest_free_minutes for d in self.days), default=0)
+
+    @property
