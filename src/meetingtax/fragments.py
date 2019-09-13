@@ -128,3 +128,12 @@ def compute_day(
 def compute_all(
     occurrences: list[Occurrence],
     workday: Workday,
+) -> list[DayFocus]:
+    """Compute focus for every person on every day that has a meeting."""
+    grouped: dict[tuple[str, _dt.date], list[Occurrence]] = {}
+    for occ in occurrences:
+        grouped.setdefault((occ.attendee, occ.day), []).append(occ)
+
+    days: list[DayFocus] = []
+    for (attendee, day), occ_list in grouped.items():
+        days.append(compute_day(attendee, day, occ_list, workday))
