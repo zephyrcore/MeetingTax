@@ -137,3 +137,12 @@ def compute_all(
     days: list[DayFocus] = []
     for (attendee, day), occ_list in grouped.items():
         days.append(compute_day(attendee, day, occ_list, workday))
+    days.sort(key=lambda d: (d.attendee, d.day))
+    return days
+
+
+@dataclass
+class PersonFocus:
+    """A person's focus summary across all their meeting days."""
+
+    attendee: str
