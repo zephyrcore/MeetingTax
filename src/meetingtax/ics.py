@@ -35,3 +35,16 @@ class RawProperty:
     params: dict[str, str]
     value: str
 
+
+@dataclass
+class ParsedDateTime:
+    """A date-time value with the timezone hint kept but not applied."""
+
+    value: _dt.datetime
+    is_utc: bool = False
+    tzid: str | None = None
+    date_only: bool = False
+
+
+@dataclass
+class RRule:
