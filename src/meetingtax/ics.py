@@ -48,3 +48,17 @@ class ParsedDateTime:
 
 @dataclass
 class RRule:
+    """A recurrence rule reduced to the fields meetingtax understands."""
+
+    freq: str
+    interval: int = 1
+    count: int | None = None
+    until: _dt.datetime | None = None
+    byday: list[str] = field(default_factory=list)
+    raw: str = ""
+
+    @property
+    def expandable(self) -> bool:
+        """True when this tool expands the rule rather than skipping it."""
+        return self.freq in ("DAILY", "WEEKLY")
+
