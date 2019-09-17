@@ -62,3 +62,17 @@ class RRule:
         """True when this tool expands the rule rather than skipping it."""
         return self.freq in ("DAILY", "WEEKLY")
 
+
+@dataclass
+class VEvent:
+    """A parsed VEVENT with the properties meetingtax reads."""
+
+    uid: str
+    summary: str
+    dtstart: ParsedDateTime | None
+    dtend: ParsedDateTime | None
+    attendees: list[str] = field(default_factory=list)
+    organizer: str | None = None
+    rrule: RRule | None = None
+    properties: dict[str, RawProperty] = field(default_factory=dict)
+
