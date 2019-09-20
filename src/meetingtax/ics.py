@@ -76,3 +76,17 @@ class VEvent:
     rrule: RRule | None = None
     properties: dict[str, RawProperty] = field(default_factory=dict)
 
+
+def unfold_lines(text: str) -> list[str]:
+    """Join continuation lines per RFC 5545 section 3.1.
+
+    A CRLF followed by a single space or tab is a fold. We accept plain LF too,
+    because exported files are not always strict about the carriage return.
+    """
+    normalised = text.replace("\r\n", "\n").replace("\r", "\n")
+    lines = normalised.split("\n")
+    unfolded: list[str] = []
+    for line in lines:
+        if line[:1] in (" ", "\t") and unfolded:
+            unfolded[-1] += line[1:]
+        else:
