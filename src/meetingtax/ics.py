@@ -90,3 +90,17 @@ def unfold_lines(text: str) -> list[str]:
         if line[:1] in (" ", "\t") and unfolded:
             unfolded[-1] += line[1:]
         else:
+            unfolded.append(line)
+    return unfolded
+
+
+def _split_params(name_part: str) -> tuple[str, dict[str, str]]:
+    """Split ``NAME;P1=v1;P2=v2`` into the name and a parameter map."""
+    pieces = _split_unquoted(name_part, ";")
+    name = pieces[0].upper()
+    params: dict[str, str] = {}
+    for piece in pieces[1:]:
+        if "=" in piece:
+            key, _, val = piece.partition("=")
+            params[key.upper()] = val.strip('"')
+    return name, params
