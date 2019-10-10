@@ -104,3 +104,17 @@ def _split_params(name_part: str) -> tuple[str, dict[str, str]]:
             key, _, val = piece.partition("=")
             params[key.upper()] = val.strip('"')
     return name, params
+
+
+def _split_unquoted(text: str, sep: str) -> list[str]:
+    """Split on ``sep`` but ignore separators inside double quotes."""
+    out: list[str] = []
+    current: list[str] = []
+    in_quote = False
+    for ch in text:
+        if ch == '"':
+            in_quote = not in_quote
+            current.append(ch)
+        elif ch == sep and not in_quote:
+            out.append("".join(current))
+            current = []
