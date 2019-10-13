@@ -118,3 +118,16 @@ def _split_unquoted(text: str, sep: str) -> list[str]:
         elif ch == sep and not in_quote:
             out.append("".join(current))
             current = []
+        else:
+            current.append(ch)
+    out.append("".join(current))
+    return out
+
+
+def parse_property(line: str) -> RawProperty | None:
+    """Parse one unfolded content line into a RawProperty, or None if blank."""
+    if not line.strip():
+        return None
+    if ":" not in line:
+        raise ICSError("content line has no value separator: " + line[:40])
+    name_part, _, value = line.partition(":")
