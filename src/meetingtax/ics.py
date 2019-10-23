@@ -173,3 +173,17 @@ def parse_datetime(prop: RawProperty) -> ParsedDateTime:
             raise ICSError("bad DATE value: " + raw) from exc
         return ParsedDateTime(value=parsed, tzid=tzid, date_only=True)
 
+    is_utc = raw.endswith("Z")
+    core = raw[:-1] if is_utc else raw
+    try:
+        parsed = _dt.datetime.strptime(core, "%Y%m%dT%H%M%S")
+    except ValueError as exc:
+        raise ICSError("bad DATE-TIME value: " + raw) from exc
+    return ParsedDateTime(value=parsed, is_utc=is_utc, tzid=tzid)
+
+
+def parse_duration(value: str) -> _dt.timedelta:
+    """Parse an RFC 5545 DURATION such as ``PT1H30M`` or ``P1D``.
+
+    Weeks, days, hours, minutes and seconds are supported. A leading minus sign
+    negates the whole duration.
