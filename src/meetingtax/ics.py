@@ -159,3 +159,17 @@ def unescape_text(value: str) -> str:
 def parse_datetime(prop: RawProperty) -> ParsedDateTime:
     """Read a DATE or DATE-TIME value, keeping the timezone hint.
 
+    Accepts the basic forms ``20260907T090000`` (floating), ``...Z`` (UTC), and
+    a VALUE=DATE form ``20260907``. A TZID parameter is recorded but not applied.
+    """
+    raw = prop.value.strip()
+    tzid = prop.params.get("TZID")
+    value_type = prop.params.get("VALUE", "").upper()
+
+    if value_type == "DATE" or (len(raw) == 8 and "T" not in raw):
+        try:
+            parsed = _dt.datetime.strptime(raw, "%Y%m%d")
+        except ValueError as exc:
+            raise ICSError("bad DATE value: " + raw) from exc
+        return ParsedDateTime(value=parsed, tzid=tzid, date_only=True)
+
