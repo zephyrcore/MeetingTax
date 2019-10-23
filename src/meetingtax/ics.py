@@ -201,3 +201,16 @@ def parse_duration(value: str) -> _dt.timedelta:
 
     weeks = days = hours = minutes = seconds = 0
     number = ""
+    in_time = False
+    for ch in text:
+        if ch == "T":
+            in_time = True
+            continue
+        if ch.isdigit():
+            number += ch
+            continue
+        if not number:
+            raise ICSError("bad DURATION value: " + value)
+        amount = int(number)
+        number = ""
+        if ch == "W":
