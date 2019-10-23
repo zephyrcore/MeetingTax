@@ -187,3 +187,17 @@ def parse_duration(value: str) -> _dt.timedelta:
 
     Weeks, days, hours, minutes and seconds are supported. A leading minus sign
     negates the whole duration.
+    """
+    text = value.strip()
+    sign = 1
+    if text.startswith("-"):
+        sign = -1
+        text = text[1:]
+    elif text.startswith("+"):
+        text = text[1:]
+    if not text.startswith("P"):
+        raise ICSError("bad DURATION value: " + value)
+    text = text[1:]
+
+    weeks = days = hours = minutes = seconds = 0
+    number = ""
