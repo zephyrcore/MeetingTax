@@ -131,3 +131,17 @@ def parse_property(line: str) -> RawProperty | None:
     if ":" not in line:
         raise ICSError("content line has no value separator: " + line[:40])
     name_part, _, value = line.partition(":")
+    name, params = _split_params(name_part)
+    return RawProperty(name=name, params=params, value=value)
+
+
+def unescape_text(value: str) -> str:
+    """Reverse RFC 5545 TEXT escaping."""
+    out: list[str] = []
+    i = 0
+    while i < len(value):
+        ch = value[i]
+        if ch == "\\" and i + 1 < len(value):
+            nxt = value[i + 1]
+            if nxt in ("n", "N"):
+                out.append("\n")
