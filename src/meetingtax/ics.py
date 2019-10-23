@@ -145,3 +145,17 @@ def unescape_text(value: str) -> str:
             nxt = value[i + 1]
             if nxt in ("n", "N"):
                 out.append("\n")
+            elif nxt in (",", ";", "\\"):
+                out.append(nxt)
+            else:
+                out.append(nxt)
+            i += 2
+            continue
+        out.append(ch)
+        i += 1
+    return "".join(out)
+
+
+def parse_datetime(prop: RawProperty) -> ParsedDateTime:
+    """Read a DATE or DATE-TIME value, keeping the timezone hint.
+
