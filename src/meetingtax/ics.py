@@ -214,3 +214,17 @@ def parse_duration(value: str) -> _dt.timedelta:
         amount = int(number)
         number = ""
         if ch == "W":
+            weeks = amount
+        elif ch == "D":
+            days = amount
+        elif ch == "H" and in_time:
+            hours = amount
+        elif ch == "M" and in_time:
+            minutes = amount
+        elif ch == "S" and in_time:
+            seconds = amount
+        else:
+            raise ICSError("unsupported DURATION unit in: " + value)
+    delta = _dt.timedelta(
+        weeks=weeks, days=days, hours=hours, minutes=minutes, seconds=seconds
+    )
