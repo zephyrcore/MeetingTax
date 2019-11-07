@@ -242,3 +242,17 @@ def parse_rrule(value: str) -> RRule:
         if "=" in token:
             key, _, val = token.partition("=")
             parts[key.upper()] = val
+    freq = parts.get("FREQ", "").upper()
+    interval = int(parts.get("INTERVAL", "1") or "1")
+    count = int(parts["COUNT"]) if "COUNT" in parts else None
+    until = None
+    if "UNTIL" in parts:
+        raw_until = parts["UNTIL"]
+        core = raw_until[:-1] if raw_until.endswith("Z") else raw_until
+        try:
+            if "T" in core:
+                until = _dt.datetime.strptime(core, "%Y%m%dT%H%M%S")
+            else:
+                until = _dt.datetime.strptime(core, "%Y%m%d")
+        except ValueError as exc:
+            raise ICSError("bad UNTIL in RRULE: " + raw_until) from exc
