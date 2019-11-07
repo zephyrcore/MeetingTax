@@ -228,3 +228,17 @@ def parse_duration(value: str) -> _dt.timedelta:
     delta = _dt.timedelta(
         weeks=weeks, days=days, hours=hours, minutes=minutes, seconds=seconds
     )
+    return sign * delta
+
+
+def parse_rrule(value: str) -> RRule:
+    """Parse an RRULE property value into an RRule.
+
+    FREQ, INTERVAL, COUNT, UNTIL and BYDAY are read. Anything else is preserved
+    on ``raw`` and ignored during expansion.
+    """
+    parts = {}
+    for token in value.split(";"):
+        if "=" in token:
+            key, _, val = token.partition("=")
+            parts[key.upper()] = val
