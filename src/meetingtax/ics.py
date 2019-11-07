@@ -256,3 +256,17 @@ def parse_rrule(value: str) -> RRule:
                 until = _dt.datetime.strptime(core, "%Y%m%d")
         except ValueError as exc:
             raise ICSError("bad UNTIL in RRULE: " + raw_until) from exc
+    byday = [d.strip().upper() for d in parts.get("BYDAY", "").split(",") if d.strip()]
+    return RRule(
+        freq=freq,
+        interval=interval,
+        count=count,
+        until=until,
+        byday=byday,
+        raw=value,
+    )
+
+
+def _clean_calendar_address(value: str, params: dict[str, str]) -> str:
+    """Prefer a CN parameter, otherwise strip a mailto prefix from the value."""
+    cn = params.get("CN")
