@@ -270,3 +270,17 @@ def parse_rrule(value: str) -> RRule:
 def _clean_calendar_address(value: str, params: dict[str, str]) -> str:
     """Prefer a CN parameter, otherwise strip a mailto prefix from the value."""
     cn = params.get("CN")
+    if cn:
+        return cn
+    addr = value.strip()
+    if addr.upper().startswith("MAILTO:"):
+        addr = addr[len("MAILTO:"):]
+    return addr
+
+
+def parse_calendar(text: str) -> list[VEvent]:
+    """Parse an iCalendar document and return every VEVENT it contains."""
+    lines = unfold_lines(text)
+    events: list[VEvent] = []
+    in_event = False
+    depth_other = 0
