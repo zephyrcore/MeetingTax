@@ -284,3 +284,16 @@ def parse_calendar(text: str) -> list[VEvent]:
     events: list[VEvent] = []
     in_event = False
     depth_other = 0
+
+    uid = summary = ""
+    dtstart = dtend = None
+    attendees: list[str] = []
+    organizer: str | None = None
+    rrule: RRule | None = None
+    duration: _dt.timedelta | None = None
+    props: dict[str, RawProperty] = {}
+
+    def reset() -> None:
+        nonlocal uid, summary, dtstart, dtend, attendees, organizer, rrule
+        nonlocal duration, props
+        uid = summary = ""
