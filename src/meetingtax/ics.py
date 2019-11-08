@@ -297,3 +297,17 @@ def parse_calendar(text: str) -> list[VEvent]:
         nonlocal uid, summary, dtstart, dtend, attendees, organizer, rrule
         nonlocal duration, props
         uid = summary = ""
+        dtstart = dtend = None
+        attendees = []
+        organizer = None
+        rrule = None
+        duration = None
+        props = {}
+
+    for line in lines:
+        prop = parse_property(line)
+        if prop is None:
+            continue
+
+        if prop.name == "BEGIN":
+            block = prop.value.upper()
