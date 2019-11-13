@@ -15,3 +15,7 @@ from meetingtax.ics import VEvent
 
 @dataclass
 class RecurringSeries:
+    """A recurring VEVENT reduced to the facts that decide if it is stale."""
+
+    uid: str
+    summary: str
