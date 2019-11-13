@@ -311,3 +311,17 @@ def parse_calendar(text: str) -> list[VEvent]:
 
         if prop.name == "BEGIN":
             block = prop.value.upper()
+            if block == "VEVENT" and depth_other == 0:
+                in_event = True
+                reset()
+            elif in_event:
+                depth_other += 1
+            continue
+
+        if prop.name == "END":
+            block = prop.value.upper()
+            if block == "VEVENT" and in_event and depth_other == 0:
+                if dtstart is not None and dtend is None and duration is not None:
+                    dtend = ParsedDateTime(
+                        value=dtstart.value + duration,
+                        is_utc=dtstart.is_utc,
