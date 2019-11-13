@@ -6,3 +6,7 @@ that has run unchanged for months is the kind of standing invite worth
 questioning, because nobody has adjusted it to what the team now needs.
 """
 
+from __future__ import annotations
+
+from dataclasses import dataclass
+
