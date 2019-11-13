@@ -19,3 +19,8 @@ class RecurringSeries:
 
     uid: str
     summary: str
+    freq: str
+    interval: int
+    attendee_count: int
+    duration_minutes: int
+    instances: int
