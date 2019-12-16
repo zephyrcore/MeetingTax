@@ -24,3 +24,7 @@ class RecurringSeries:
     attendee_count: int
     duration_minutes: int
     instances: int
+    expanded: bool
+
+    @property
+    def stale(self) -> bool:
