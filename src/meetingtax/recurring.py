@@ -28,3 +28,8 @@ class RecurringSeries:
 
     @property
     def stale(self) -> bool:
+        """A recurring series this tool expanded and that never varies.
+
+        Because each series carries one attendee set and one duration in the
+        source, an expanded series with more than one instance is by definition
+        unchanging across its run. Series we could not expand are not judged.
