@@ -33,3 +33,8 @@ class RecurringSeries:
         Because each series carries one attendee set and one duration in the
         source, an expanded series with more than one instance is by definition
         unchanging across its run. Series we could not expand are not judged.
+        """
+        return self.expanded and self.instances > 1
+
+
+def analyse(events: list[VEvent]) -> list[RecurringSeries]:
