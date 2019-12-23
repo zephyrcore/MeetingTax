@@ -42,3 +42,8 @@ def analyse(events: list[VEvent]) -> list[RecurringSeries]:
     series: list[RecurringSeries] = []
     for event in events:
         rule = event.rrule
+        if rule is None:
+            continue
+        if event.dtstart is None or event.dtend is None:
+            continue
+        duration = int((event.dtend.value - event.dtstart.value).total_seconds() // 60)
