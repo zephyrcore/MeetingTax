@@ -47,3 +47,7 @@ def analyse(events: list[VEvent]) -> list[RecurringSeries]:
         if event.dtstart is None or event.dtend is None:
             continue
         duration = int((event.dtend.value - event.dtstart.value).total_seconds() // 60)
+        organizer_set = {event.organizer} if event.organizer else set()
+        attendee_count = len(set(event.attendees) | organizer_set)
+        instances = _instance_count(rule)
+        series.append(
