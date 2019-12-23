@@ -38,3 +38,7 @@ class RecurringSeries:
 
 
 def analyse(events: list[VEvent]) -> list[RecurringSeries]:
+    """Return one RecurringSeries per VEVENT that carries an RRULE."""
+    series: list[RecurringSeries] = []
+    for event in events:
+        rule = event.rrule
