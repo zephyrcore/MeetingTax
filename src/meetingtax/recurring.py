@@ -56,3 +56,7 @@ def analyse(events: list[VEvent]) -> list[RecurringSeries]:
                 summary=event.summary,
                 freq=rule.freq or "UNKNOWN",
                 interval=rule.interval,
+                attendee_count=attendee_count,
+                duration_minutes=duration,
+                instances=instances,
+                expanded=rule.expandable,
