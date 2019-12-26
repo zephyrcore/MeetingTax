@@ -51,3 +51,8 @@ def analyse(events: list[VEvent]) -> list[RecurringSeries]:
         attendee_count = len(set(event.attendees) | organizer_set)
         instances = _instance_count(rule)
         series.append(
+            RecurringSeries(
+                uid=event.uid,
+                summary=event.summary,
+                freq=rule.freq or "UNKNOWN",
+                interval=rule.interval,
