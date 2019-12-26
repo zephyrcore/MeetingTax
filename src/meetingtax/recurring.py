@@ -65,3 +65,7 @@ def analyse(events: list[VEvent]) -> list[RecurringSeries]:
     series.sort(key=lambda s: (s.uid, s.summary))
     return series
 
+
+def _instance_count(rule) -> int:
+    """A best effort instance count, only meaningful for expandable rules."""
+    if not rule.expandable:
