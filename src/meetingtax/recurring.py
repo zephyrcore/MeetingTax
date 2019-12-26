@@ -60,3 +60,8 @@ def analyse(events: list[VEvent]) -> list[RecurringSeries]:
                 duration_minutes=duration,
                 instances=instances,
                 expanded=rule.expandable,
+            )
+        )
+    series.sort(key=lambda s: (s.uid, s.summary))
+    return series
+
