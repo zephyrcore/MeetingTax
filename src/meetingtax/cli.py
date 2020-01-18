@@ -22,3 +22,13 @@ from meetingtax.ics import ICSError, parse_calendar
 from meetingtax.recurring import analyse
 
 EXIT_CLEAN = 0
+EXIT_FINDINGS = 1
+EXIT_USAGE = 2
+
+
+def _parse_hhmm(value: str) -> tuple[int, int]:
+    if ":" not in value:
+        raise argparse.ArgumentTypeError("time must be HH:MM, got " + value)
+    hh, _, mm = value.partition(":")
+    try:
+        hour, minute = int(hh), int(mm)
