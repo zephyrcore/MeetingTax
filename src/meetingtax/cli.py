@@ -32,3 +32,13 @@ def _parse_hhmm(value: str) -> tuple[int, int]:
     hh, _, mm = value.partition(":")
     try:
         hour, minute = int(hh), int(mm)
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError("time must be HH:MM, got " + value) from exc
+    if not (0 <= hour <= 23 and 0 <= minute <= 59):
+        raise argparse.ArgumentTypeError("time out of range: " + value)
+    return hour, minute
+
+
+def _read_calendar(path: str):
+    with open(path, "r", encoding="utf-8") as handle:
+        text = handle.read()
