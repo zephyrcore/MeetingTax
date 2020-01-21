@@ -42,3 +42,13 @@ def _parse_hhmm(value: str) -> tuple[int, int]:
 def _read_calendar(path: str):
     with open(path, "r", encoding="utf-8") as handle:
         text = handle.read()
+    return parse_calendar(text)
+
+
+def _workday_from_args(args) -> Workday:
+    sh, sm = args.day_start
+    eh, em = args.day_end
+    return Workday(start_hour=sh, start_minute=sm, end_hour=eh, end_minute=em)
+
+
+def _add_common(parser: argparse.ArgumentParser) -> None:
