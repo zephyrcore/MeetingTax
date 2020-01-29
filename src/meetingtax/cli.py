@@ -52,3 +52,13 @@ def _workday_from_args(args) -> Workday:
 
 
 def _add_common(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("calendar", help="path to an .ics file")
+    parser.add_argument(
+        "--day-start",
+        type=_parse_hhmm,
+        default=(9, 0),
+        metavar="HH:MM",
+        help="start of the workday window, default 09:00",
+    )
+    parser.add_argument(
+        "--day-end",
