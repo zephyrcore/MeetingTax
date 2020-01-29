@@ -62,3 +62,12 @@ def _add_common(parser: argparse.ArgumentParser) -> None:
     )
     parser.add_argument(
         "--day-end",
+        type=_parse_hhmm,
+        default=(17, 0),
+        metavar="HH:MM",
+        help="end of the workday window, default 17:00",
+    )
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
