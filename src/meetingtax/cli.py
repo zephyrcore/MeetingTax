@@ -71,3 +71,13 @@ def _add_common(parser: argparse.ArgumentParser) -> None:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
+        prog="meetingtax",
+        description="Measure the attention cost of meetings from an iCalendar export.",
+    )
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    p_load = sub.add_parser("load", help="report meeting load and skipped rules")
+    _add_common(p_load)
+
+    p_focus = sub.add_parser("focus", help="report focus fragmentation per person")
+    _add_common(p_focus)
