@@ -81,3 +81,13 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_focus = sub.add_parser("focus", help="report focus fragmentation per person")
     _add_common(p_focus)
+    p_focus.add_argument(
+        "--threshold",
+        type=int,
+        default=120,
+        metavar="MINUTES",
+        help="declared focus block threshold in minutes, default 120",
+    )
+
+    p_recurring = sub.add_parser("recurring", help="flag stale recurring series")
+    p_recurring.add_argument("calendar", help="path to an .ics file")
