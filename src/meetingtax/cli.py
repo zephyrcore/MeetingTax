@@ -91,3 +91,13 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_recurring = sub.add_parser("recurring", help="flag stale recurring series")
     p_recurring.add_argument("calendar", help="path to an .ics file")
+
+    sub.add_parser("version", help="print the version and exit")
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+
+    if args.command == "version":
