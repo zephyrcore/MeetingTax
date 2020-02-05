@@ -101,3 +101,13 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.command == "version":
+        print("meetingtax " + __version__)
+        return EXIT_CLEAN
+
+    try:
+        events = _read_calendar(args.calendar)
+    except FileNotFoundError:
+        print("error: file not found: " + args.calendar, file=sys.stderr)
+        return EXIT_USAGE
+    except ICSError as exc:
+        print("error: " + str(exc), file=sys.stderr)
