@@ -111,3 +111,13 @@ def main(argv: list[str] | None = None) -> int:
         return EXIT_USAGE
     except ICSError as exc:
         print("error: " + str(exc), file=sys.stderr)
+        return EXIT_USAGE
+
+    if args.command == "load":
+        workday = _workday_from_args(args)
+        result = expand(events)
+        for line in report_mod.load_report(result, workday):
+            print(line)
+        return EXIT_FINDINGS if result.skipped else EXIT_CLEAN
+
+    if args.command == "focus":
