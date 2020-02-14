@@ -17,3 +17,14 @@ _WEEKDAY_CODES = {
     "MO": 0,
     "TU": 1,
     "WE": 2,
+    "TH": 3,
+    "FR": 4,
+    "SA": 5,
+    "SU": 6,
+}
+
+# When a recurrence rule has no COUNT and no UNTIL, we refuse to expand forever.
+# This bound keeps output finite and is recorded in the report and README.
+_UNBOUNDED_LIMIT = 366
+
+
