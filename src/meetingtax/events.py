@@ -28,3 +28,15 @@ _WEEKDAY_CODES = {
 _UNBOUNDED_LIMIT = 366
 
 
+@dataclass(frozen=True)
+class Occurrence:
+    """One meeting instance with a resolved start and end."""
+
+    uid: str
+    summary: str
+    attendee: str
+    start: _dt.datetime
+    end: _dt.datetime
+    from_recurrence: bool = False
+
+    @property
