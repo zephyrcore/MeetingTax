@@ -40,3 +40,15 @@ class Occurrence:
     from_recurrence: bool = False
 
     @property
+    def day(self) -> _dt.date:
+        return self.start.date()
+
+    @property
+    def duration_minutes(self) -> int:
+        return int((self.end - self.start).total_seconds() // 60)
+
+
+@dataclass
+class SkippedRecurrence:
+    """A recurrence this tool declined to expand, with the reason."""
+
