@@ -64,3 +64,15 @@ class ExpansionResult:
 
     occurrences: list[Occurrence] = field(default_factory=list)
     skipped: list[SkippedRecurrence] = field(default_factory=list)
+
+
+def _event_attendees(event: VEvent) -> list[str]:
+    """Every distinct person on a meeting, organizer included, order preserved."""
+    people: list[str] = []
+    if event.organizer:
+        people.append(event.organizer)
+    for attendee in event.attendees:
+        if attendee not in people:
+            people.append(attendee)
+    return people
+
