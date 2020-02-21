@@ -52,3 +52,15 @@ class Occurrence:
 class SkippedRecurrence:
     """A recurrence this tool declined to expand, with the reason."""
 
+    uid: str
+    summary: str
+    freq: str
+    reason: str
+
+
+@dataclass
+class ExpansionResult:
+    """Occurrences produced from a calendar plus any recurrences we skipped."""
+
+    occurrences: list[Occurrence] = field(default_factory=list)
+    skipped: list[SkippedRecurrence] = field(default_factory=list)
