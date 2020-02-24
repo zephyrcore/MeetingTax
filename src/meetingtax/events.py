@@ -148,3 +148,15 @@ def expand(events: list[VEvent]) -> ExpansionResult:
     DAILY and WEEKLY are not expanded; the series is recorded in ``skipped`` and
     only its first instance is emitted.
     """
+    result = ExpansionResult()
+    for event in events:
+        if event.dtstart is None or event.dtend is None:
+            continue
+        duration = event.dtend.value - event.dtstart.value
+        people = _event_attendees(event)
+        if not people:
+            continue
+
+        rule = event.rrule
+        if rule is not None and not rule.expandable:
+            result.skipped.append(
