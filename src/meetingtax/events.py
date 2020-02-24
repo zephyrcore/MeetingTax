@@ -112,3 +112,15 @@ def _base_dates(event: VEvent) -> list[_dt.datetime]:
     )
     weekdays = sorted(set(weekdays))
     week_start = start - _dt.timedelta(days=start.weekday())
+    emitted = 0
+    limit = rule.count if rule.count is not None else _UNBOUNDED_LIMIT
+    week_index = 0
+    while emitted < limit:
+        base_week = week_start + _dt.timedelta(weeks=week_index * rule.interval)
+        stop = False
+        for wd in weekdays:
+            candidate = base_week + _dt.timedelta(days=wd)
+            candidate = candidate.replace(
+                hour=start.hour, minute=start.minute, second=start.second
+            )
+            if candidate < start:
