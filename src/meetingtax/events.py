@@ -136,3 +136,15 @@ def _base_dates(event: VEvent) -> list[_dt.datetime]:
         if stop:
             break
         week_index += 1
+        if week_index > _UNBOUNDED_LIMIT:
+            break
+    return starts
+
+
+def expand(events: list[VEvent]) -> ExpansionResult:
+    """Turn VEVENTs into per person per occurrence rows.
+
+    Events without a start and end are dropped. Recurrence rules other than
+    DAILY and WEEKLY are not expanded; the series is recorded in ``skipped`` and
+    only its first instance is emitted.
+    """
