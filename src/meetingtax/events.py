@@ -100,3 +100,15 @@ def _base_dates(event: VEvent) -> list[_dt.datetime]:
             if rule.until is not None and current > rule.until:
                 break
             starts.append(current)
+            emitted += 1
+            current = current + step
+        return starts
+
+    # WEEKLY
+    weekdays = (
+        [_WEEKDAY_CODES[d] for d in rule.byday if d in _WEEKDAY_CODES]
+        if rule.byday
+        else [start.weekday()]
+    )
+    weekdays = sorted(set(weekdays))
+    week_start = start - _dt.timedelta(days=start.weekday())
