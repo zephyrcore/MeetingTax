@@ -124,3 +124,15 @@ def _base_dates(event: VEvent) -> list[_dt.datetime]:
                 hour=start.hour, minute=start.minute, second=start.second
             )
             if candidate < start:
+                continue
+            if rule.until is not None and candidate > rule.until:
+                stop = True
+                break
+            if emitted >= limit:
+                stop = True
+                break
+            starts.append(candidate)
+            emitted += 1
+        if stop:
+            break
+        week_index += 1
