@@ -88,3 +88,15 @@ def _base_dates(event: VEvent) -> list[_dt.datetime]:
     start = event.dtstart.value
     rule = event.rrule
     if rule is None or not rule.expandable:
+        return [start]
+
+    starts: list[_dt.datetime] = []
+    if rule.freq == "DAILY":
+        step = _dt.timedelta(days=rule.interval)
+        current = start
+        emitted = 0
+        limit = rule.count if rule.count is not None else _UNBOUNDED_LIMIT
+        while emitted < limit:
+            if rule.until is not None and current > rule.until:
+                break
+            starts.append(current)
