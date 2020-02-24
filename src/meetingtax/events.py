@@ -76,3 +76,15 @@ def _event_attendees(event: VEvent) -> list[str]:
             people.append(attendee)
     return people
 
+
+def _base_dates(event: VEvent) -> list[_dt.datetime]:
+    """The list of start datetimes an event produces, after any expansion.
+
+    Non-recurring events yield a single start. DAILY and WEEKLY rules are
+    expanded within their COUNT or UNTIL bound. Other rules are handled by the
+    caller, which records them as skipped.
+    """
+    assert event.dtstart is not None
+    start = event.dtstart.value
+    rule = event.rrule
+    if rule is None or not rule.expandable:
