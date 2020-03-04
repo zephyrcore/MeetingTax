@@ -14,3 +14,13 @@ from meetingtax.fragments import PersonFocus, Workday
 
 
 def _fmt_hm(minutes: int) -> str:
+    """Render a minute count as ``HhMM`` such as ``3h05`` or ``0h30``."""
+    hours = minutes // 60
+    mins = minutes % 60
+    return str(hours) + "h" + str(mins).zfill(2)
+
+
+def _fmt_time(value: _dt.datetime) -> str:
+    return value.strftime("%H:%M")
+
+
