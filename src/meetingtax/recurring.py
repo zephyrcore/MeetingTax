@@ -69,3 +69,14 @@ def analyse(events: list[VEvent]) -> list[RecurringSeries]:
 def _instance_count(rule) -> int:
     """A best effort instance count, only meaningful for expandable rules."""
     if not rule.expandable:
+        return 1
+    if rule.count is not None:
+        return rule.count
+    # Unbounded or UNTIL-bounded series report a count of at least two so the
+    # staleness check treats them as repeating. The exact horizon is not the
+    # point; the point is that the shape never changes.
+    return 2
+
+
+def stale_series(events: list[VEvent]) -> list[RecurringSeries]:
+    """Just the series judged stale, for callers that want the finding set."""
