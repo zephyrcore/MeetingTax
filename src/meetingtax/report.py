@@ -24,3 +24,14 @@ def _fmt_time(value: _dt.datetime) -> str:
     return value.strftime("%H:%M")
 
 
+def load_report(
+    result: ExpansionResult,
+    workday: Workday,
+) -> list[str]:
+    """Summarise the whole calendar: hours, short meetings, skipped rules."""
+    occ = result.occurrences
+    lines: list[str] = []
+    lines.append("meetingtax load report")
+    lines.append("workday window: " + _window_label(workday))
+    lines.append("")
+
