@@ -35,3 +35,13 @@ def load_report(
     lines.append("workday window: " + _window_label(workday))
     lines.append("")
 
+    total_person_minutes = sum(o.duration_minutes for o in occ)
+    unique_meetings = _unique_meeting_slots(occ)
+    lines.append("occurrences (person instances): " + str(len(occ)))
+    lines.append("distinct meeting slots: " + str(len(unique_meetings)))
+    lines.append("total person meeting hours: " + _fmt_hm(total_person_minutes))
+
+    shorter = _could_be_shorter(unique_meetings)
+    lines.append("meetings longer than 25 minutes ending on the hour or half: "
+                 + str(len(shorter)))
+    lines.append("")
