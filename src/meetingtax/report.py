@@ -45,3 +45,14 @@ def load_report(
     lines.append("meetings longer than 25 minutes ending on the hour or half: "
                  + str(len(shorter)))
     lines.append("")
+
+    lines.append("people seen: " + str(len({o.attendee for o in occ})))
+    for person in sorted({o.attendee for o in occ}):
+        p_minutes = sum(o.duration_minutes for o in occ if o.attendee == person)
+        lines.append("  " + person + ": " + _fmt_hm(p_minutes))
+    lines.append("")
+
+    if result.skipped:
+        lines.append("recurrence rules not expanded: " + str(len(result.skipped)))
+        for skip in result.skipped:
+            lines.append("  " + skip.uid + " (" + skip.freq + "): " + skip.reason)
