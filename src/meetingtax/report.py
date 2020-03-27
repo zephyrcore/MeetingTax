@@ -56,3 +56,13 @@ def load_report(
         lines.append("recurrence rules not expanded: " + str(len(result.skipped)))
         for skip in result.skipped:
             lines.append("  " + skip.uid + " (" + skip.freq + "): " + skip.reason)
+    else:
+        lines.append("recurrence rules not expanded: 0")
+    return lines
+
+
+def _window_label(workday: Workday) -> str:
+    start = str(workday.start_hour).zfill(2) + ":" + str(workday.start_minute).zfill(2)
+    end = str(workday.end_hour).zfill(2) + ":" + str(workday.end_minute).zfill(2)
+    return start + " to " + end
+
