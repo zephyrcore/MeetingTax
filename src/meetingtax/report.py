@@ -66,3 +66,13 @@ def _window_label(workday: Workday) -> str:
     end = str(workday.end_hour).zfill(2) + ":" + str(workday.end_minute).zfill(2)
     return start + " to " + end
 
+
+def _unique_meeting_slots(
+    occurrences: list[Occurrence],
+) -> list[tuple[str, _dt.datetime, _dt.datetime]]:
+    """Collapse per person rows back to one row per meeting instance."""
+    seen: dict[tuple[str, _dt.datetime], tuple[str, _dt.datetime, _dt.datetime]] = {}
+    for o in occurrences:
+        key = (o.uid, o.start)
+        if key not in seen:
+            seen[key] = (o.uid, o.start, o.end)
