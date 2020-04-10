@@ -76,3 +76,14 @@ def _unique_meeting_slots(
         key = (o.uid, o.start)
         if key not in seen:
             seen[key] = (o.uid, o.start, o.end)
+    return [seen[k] for k in sorted(seen)]
+
+
+def _could_be_shorter(
+    slots: list[tuple[str, _dt.datetime, _dt.datetime]],
+) -> list[tuple[str, _dt.datetime, _dt.datetime]]:
+    """Meetings that fill a standard slot and could plausibly be trimmed.
+
+    A meeting of more than 25 minutes whose length is an exact multiple of 30 is
+    treated as booked to a calendar slot rather than to the work it needs. This
+    is a heuristic, stated as such in the README, not a claim about any single
