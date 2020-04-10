@@ -108,3 +108,13 @@ def focus_report(
     lines.append("workday window: " + _window_label(workday))
     lines.append("focus threshold: " + _fmt_hm(threshold_minutes))
     lines.append("")
+
+    for person in people:
+        lines.append(person.attendee)
+        for day in person.days:
+            block = day.longest_free_block
+            if block is None:
+                span = "none"
+            else:
+                span = _fmt_time(block[0]) + " to " + _fmt_time(block[1])
+            flag = "FRAGMENTED" if day.longest_free_minutes < threshold_minutes else "ok"
