@@ -118,3 +118,13 @@ def focus_report(
             else:
                 span = _fmt_time(block[0]) + " to " + _fmt_time(block[1])
             flag = "FRAGMENTED" if day.longest_free_minutes < threshold_minutes else "ok"
+            lines.append(
+                "  " + day.day.isoformat()
+                + "  meetings=" + str(day.meeting_count)
+                + "  longest=" + _fmt_hm(day.longest_free_minutes)
+                + "  block=" + span
+                + "  " + flag
+            )
+        lines.append(
+            "  summary: best longest block "
+            + _fmt_hm(person.best_longest_free_minutes)
