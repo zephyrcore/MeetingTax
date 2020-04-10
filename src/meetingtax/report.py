@@ -97,3 +97,14 @@ def _could_be_shorter(
     return out
 
 
+def focus_report(
+    people: list[PersonFocus],
+    workday: Workday,
+    threshold_minutes: int,
+) -> list[str]:
+    """Per person per day longest focus block against the threshold."""
+    lines: list[str] = []
+    lines.append("meetingtax focus report")
+    lines.append("workday window: " + _window_label(workday))
+    lines.append("focus threshold: " + _fmt_hm(threshold_minutes))
+    lines.append("")
