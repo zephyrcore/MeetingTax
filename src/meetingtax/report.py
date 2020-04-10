@@ -87,3 +87,13 @@ def _could_be_shorter(
     A meeting of more than 25 minutes whose length is an exact multiple of 30 is
     treated as booked to a calendar slot rather than to the work it needs. This
     is a heuristic, stated as such in the README, not a claim about any single
+    meeting.
+    """
+    out = []
+    for uid, start, end in slots:
+        minutes = int((end - start).total_seconds() // 60)
+        if minutes > 25 and minutes % 30 == 0:
+            out.append((uid, start, end))
+    return out
+
+
