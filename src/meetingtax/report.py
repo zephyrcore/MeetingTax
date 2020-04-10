@@ -128,3 +128,14 @@ def focus_report(
         lines.append(
             "  summary: best longest block "
             + _fmt_hm(person.best_longest_free_minutes)
+            + ", fragmented days " + str(person.fragmented_days)
+            + " of " + str(len(person.days))
+        )
+        lines.append("")
+
+    total_fragmented = sum(p.fragmented_days for p in people)
+    lines.append("days below threshold across everyone: " + str(total_fragmented))
+    return lines
+
+
+def recurring_report(series) -> list[str]:
