@@ -16,3 +16,9 @@ Initial release.
 - Recurring series analysis that flags standing invites whose shape never
   changes.
 - CLI subcommands: load, focus, recurring, version.
+- Exit codes: 0 clean, 1 findings present, 2 usage error.
+- Hand authored sample fixture with a fragmented day, a protected day, and a
+  stale weekly recurring meeting.
+- A focus fragmentation data graphic and a wordmark logo.
+
+<!-- draft note 101 -->
