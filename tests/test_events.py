@@ -23,3 +23,11 @@ class ExpandTests(unittest.TestCase):
             "ATTENDEE;CN=Bao:mailto:bao@x\r\n"
             "END:VEVENT\r\n"
         )
+        result = expand(events)
+        people = {o.attendee for o in result.occurrences}
+        self.assertEqual(people, {"Ada", "Bao"})
+        self.assertEqual(len(result.occurrences), 2)
+
+    def test_weekly_rule_expands_by_count(self):
+        events = _cal(
+            "BEGIN:VEVENT\r\n"
