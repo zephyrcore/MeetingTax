@@ -46,3 +46,11 @@ class ExpandTests(unittest.TestCase):
             [dt.date(2026, 9, 7), dt.date(2026, 9, 14), dt.date(2026, 9, 21)],
         )
 
+    def test_daily_rule_expands_by_count(self):
+        events = _cal(
+            "BEGIN:VEVENT\r\n"
+            "UID:d@x\r\n"
+            "SUMMARY:Daily\r\n"
+            "DTSTART:20260907T090000\r\n"
+            "DTEND:20260907T091500\r\n"
+            "ORGANIZER;CN=Ada:mailto:ada@x\r\n"
