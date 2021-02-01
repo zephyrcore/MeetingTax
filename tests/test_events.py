@@ -39,3 +39,10 @@ class ExpandTests(unittest.TestCase):
             "RRULE:FREQ=WEEKLY;BYDAY=MO;COUNT=3\r\n"
             "END:VEVENT\r\n"
         )
+        result = expand(events)
+        days = sorted({o.day for o in result.occurrences})
+        self.assertEqual(
+            days,
+            [dt.date(2026, 9, 7), dt.date(2026, 9, 14), dt.date(2026, 9, 21)],
+        )
+
