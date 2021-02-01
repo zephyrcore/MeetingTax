@@ -31,3 +31,11 @@ class ExpandTests(unittest.TestCase):
     def test_weekly_rule_expands_by_count(self):
         events = _cal(
             "BEGIN:VEVENT\r\n"
+            "UID:w@x\r\n"
+            "SUMMARY:Standup\r\n"
+            "DTSTART:20260907T090000\r\n"
+            "DTEND:20260907T093000\r\n"
+            "ORGANIZER;CN=Ada:mailto:ada@x\r\n"
+            "RRULE:FREQ=WEEKLY;BYDAY=MO;COUNT=3\r\n"
+            "END:VEVENT\r\n"
+        )
