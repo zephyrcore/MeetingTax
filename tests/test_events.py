@@ -62,3 +62,10 @@ class ExpandTests(unittest.TestCase):
 
     def test_unsupported_rule_is_skipped_but_first_kept(self):
         events = _cal(
+            "BEGIN:VEVENT\r\n"
+            "UID:mo@x\r\n"
+            "SUMMARY:Monthly\r\n"
+            "DTSTART:20260907T140000\r\n"
+            "DTEND:20260907T150000\r\n"
+            "ORGANIZER;CN=Ada:mailto:ada@x\r\n"
+            "RRULE:FREQ=MONTHLY;COUNT=4\r\n"
