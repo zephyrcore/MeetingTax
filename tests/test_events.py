@@ -77,3 +77,11 @@ class ExpandTests(unittest.TestCase):
         self.assertEqual(len({o.day for o in result.occurrences}), 1)
 
     def test_deterministic_ordering(self):
+        events = _cal(
+            "BEGIN:VEVENT\r\n"
+            "UID:z@x\r\n"
+            "SUMMARY:Later\r\n"
+            "DTSTART:20260907T140000\r\n"
+            "DTEND:20260907T143000\r\n"
+            "ORGANIZER;CN=Zoe:mailto:zoe@x\r\n"
+            "END:VEVENT\r\n"
