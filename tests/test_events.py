@@ -54,3 +54,11 @@ class ExpandTests(unittest.TestCase):
             "DTSTART:20260907T090000\r\n"
             "DTEND:20260907T091500\r\n"
             "ORGANIZER;CN=Ada:mailto:ada@x\r\n"
+            "RRULE:FREQ=DAILY;COUNT=4\r\n"
+            "END:VEVENT\r\n"
+        )
+        result = expand(events)
+        self.assertEqual(len({o.day for o in result.occurrences}), 4)
+
+    def test_unsupported_rule_is_skipped_but_first_kept(self):
+        events = _cal(
