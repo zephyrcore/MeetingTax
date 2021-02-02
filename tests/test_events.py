@@ -69,3 +69,11 @@ class ExpandTests(unittest.TestCase):
             "DTEND:20260907T150000\r\n"
             "ORGANIZER;CN=Ada:mailto:ada@x\r\n"
             "RRULE:FREQ=MONTHLY;COUNT=4\r\n"
+            "END:VEVENT\r\n"
+        )
+        result = expand(events)
+        self.assertEqual(len(result.skipped), 1)
+        self.assertEqual(result.skipped[0].freq, "MONTHLY")
+        self.assertEqual(len({o.day for o in result.occurrences}), 1)
+
+    def test_deterministic_ordering(self):
