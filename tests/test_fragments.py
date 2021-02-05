@@ -10,3 +10,9 @@ from meetingtax.fragments import Workday, compute_day, compute_all, summarise_pe
 def _occ(attendee, sh, sm, eh, em, day=dt.date(2026, 9, 7)):
     start = dt.datetime(day.year, day.month, day.day, sh, sm)
     end = dt.datetime(day.year, day.month, day.day, eh, em)
+    return Occurrence(uid="u", summary="s", attendee=attendee, start=start, end=end)
+
+
+class ComputeDayTests(unittest.TestCase):
+    def setUp(self):
+        self.workday = Workday()
