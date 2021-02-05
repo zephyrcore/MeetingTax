@@ -16,3 +16,8 @@ def _occ(attendee, sh, sm, eh, em, day=dt.date(2026, 9, 7)):
 class ComputeDayTests(unittest.TestCase):
     def setUp(self):
         self.workday = Workday()
+
+    def test_empty_day_is_one_full_block(self):
+        focus = compute_day("Ada", dt.date(2026, 9, 7), [], self.workday)
+        self.assertEqual(focus.longest_free_minutes, 480)
+
