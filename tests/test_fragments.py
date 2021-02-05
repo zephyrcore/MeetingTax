@@ -27,3 +27,8 @@ class ComputeDayTests(unittest.TestCase):
         self.assertEqual(focus.longest_free_minutes, 420)
 
     def test_scattered_meetings_fragment_the_day(self):
+        occs = [
+            _occ("Ada", 9, 0, 9, 30),
+            _occ("Ada", 10, 0, 10, 30),
+            _occ("Ada", 11, 0, 11, 30),
+            _occ("Ada", 13, 0, 13, 30),
