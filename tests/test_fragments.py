@@ -32,3 +32,8 @@ class ComputeDayTests(unittest.TestCase):
             _occ("Ada", 10, 0, 10, 30),
             _occ("Ada", 11, 0, 11, 30),
             _occ("Ada", 13, 0, 13, 30),
+            _occ("Ada", 14, 0, 14, 30),
+            _occ("Ada", 15, 30, 16, 0),
+        ]
+        focus = compute_day("Ada", dt.date(2026, 9, 7), occs, self.workday)
+        # Longest gap is 13:30 to 14:00 is 30, 11:30 to 13:00 is 90, 16:00 to
