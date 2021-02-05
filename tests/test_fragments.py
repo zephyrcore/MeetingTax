@@ -43,3 +43,8 @@ class ComputeDayTests(unittest.TestCase):
     def test_overlapping_meetings_merge(self):
         occs = [_occ("Ada", 9, 0, 10, 0), _occ("Ada", 9, 30, 11, 0)]
         focus = compute_day("Ada", dt.date(2026, 9, 7), occs, self.workday)
+        self.assertEqual(focus.busy_minutes, 120)
+
+    def test_meeting_outside_window_ignored(self):
+        occs = [_occ("Ada", 7, 0, 8, 0)]
+        focus = compute_day("Ada", dt.date(2026, 9, 7), occs, self.workday)
