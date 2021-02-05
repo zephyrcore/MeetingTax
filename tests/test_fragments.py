@@ -21,3 +21,9 @@ class ComputeDayTests(unittest.TestCase):
         focus = compute_day("Ada", dt.date(2026, 9, 7), [], self.workday)
         self.assertEqual(focus.longest_free_minutes, 480)
 
+    def test_single_block_leaves_long_free(self):
+        occs = [_occ("Ada", 9, 0, 10, 0)]
+        focus = compute_day("Ada", dt.date(2026, 9, 7), occs, self.workday)
+        self.assertEqual(focus.longest_free_minutes, 420)
+
+    def test_scattered_meetings_fragment_the_day(self):
