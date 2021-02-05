@@ -37,3 +37,9 @@ class ComputeDayTests(unittest.TestCase):
         ]
         focus = compute_day("Ada", dt.date(2026, 9, 7), occs, self.workday)
         # Longest gap is 13:30 to 14:00 is 30, 11:30 to 13:00 is 90, 16:00 to
+        # 17:00 is 60. The longest is 90 minutes.
+        self.assertEqual(focus.longest_free_minutes, 90)
+
+    def test_overlapping_meetings_merge(self):
+        occs = [_occ("Ada", 9, 0, 10, 0), _occ("Ada", 9, 30, 11, 0)]
+        focus = compute_day("Ada", dt.date(2026, 9, 7), occs, self.workday)
