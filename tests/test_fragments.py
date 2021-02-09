@@ -54,3 +54,8 @@ class ComputeDayTests(unittest.TestCase):
 class SummariseTests(unittest.TestCase):
     def test_fragmented_days_counted_against_threshold(self):
         occs_frag = [
+            _occ("Ada", 9, 0, 9, 30),
+            _occ("Ada", 10, 0, 10, 30),
+            _occ("Ada", 11, 0, 11, 30),
+            _occ("Ada", 13, 0, 13, 30),
+            _occ("Ada", 14, 0, 14, 30),
