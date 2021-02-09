@@ -48,3 +48,9 @@ class ComputeDayTests(unittest.TestCase):
     def test_meeting_outside_window_ignored(self):
         occs = [_occ("Ada", 7, 0, 8, 0)]
         focus = compute_day("Ada", dt.date(2026, 9, 7), occs, self.workday)
+        self.assertEqual(focus.longest_free_minutes, 480)
+
+
+class SummariseTests(unittest.TestCase):
+    def test_fragmented_days_counted_against_threshold(self):
+        occs_frag = [
