@@ -30,3 +30,12 @@ class PropertyTests(unittest.TestCase):
     def test_quoted_param_value_keeps_colon(self):
         prop = ics.parse_property('X-THING;CN="Doe, Jane":value')
         self.assertEqual(prop.params["CN"], "Doe, Jane")
+
+    def test_missing_separator_raises(self):
+        with self.assertRaises(ics.ICSError):
+            ics.parse_property("NOVALUE")
+
+
+class EscapingTests(unittest.TestCase):
+    def test_escaped_comma_and_newline(self):
+        self.assertEqual(ics.unescape_text("a\\, b\\nc"), "a, b\nc")
