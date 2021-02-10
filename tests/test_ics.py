@@ -21,3 +21,12 @@ class UnfoldTests(unittest.TestCase):
 
 
 class PropertyTests(unittest.TestCase):
+    def test_params_parsed(self):
+        prop = ics.parse_property("DTSTART;TZID=America/New_York:20260908T090000")
+        self.assertEqual(prop.name, "DTSTART")
+        self.assertEqual(prop.params["TZID"], "America/New_York")
+        self.assertEqual(prop.value, "20260908T090000")
+
+    def test_quoted_param_value_keeps_colon(self):
+        prop = ics.parse_property('X-THING;CN="Doe, Jane":value')
+        self.assertEqual(prop.params["CN"], "Doe, Jane")
