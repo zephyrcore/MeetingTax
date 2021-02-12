@@ -39,3 +39,12 @@ class PropertyTests(unittest.TestCase):
 class EscapingTests(unittest.TestCase):
     def test_escaped_comma_and_newline(self):
         self.assertEqual(ics.unescape_text("a\\, b\\nc"), "a, b\nc")
+
+    def test_escaped_backslash(self):
+        self.assertEqual(ics.unescape_text("a\\\\b"), "a\\b")
+
+
+class DateTimeTests(unittest.TestCase):
+    def test_floating_datetime(self):
+        prop = ics.parse_property("DTSTART:20260907T090000")
+        parsed = ics.parse_datetime(prop)
