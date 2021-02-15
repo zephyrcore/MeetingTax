@@ -48,3 +48,12 @@ class DateTimeTests(unittest.TestCase):
     def test_floating_datetime(self):
         prop = ics.parse_property("DTSTART:20260907T090000")
         parsed = ics.parse_datetime(prop)
+        self.assertEqual(parsed.value, dt.datetime(2026, 9, 7, 9, 0, 0))
+        self.assertFalse(parsed.is_utc)
+        self.assertIsNone(parsed.tzid)
+
+    def test_utc_datetime(self):
+        prop = ics.parse_property("DTSTART:20260907T090000Z")
+        parsed = ics.parse_datetime(prop)
+        self.assertTrue(parsed.is_utc)
+        self.assertEqual(parsed.value, dt.datetime(2026, 9, 7, 9, 0, 0))
