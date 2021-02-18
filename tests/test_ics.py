@@ -66,3 +66,12 @@ class DateTimeTests(unittest.TestCase):
 
     def test_date_only(self):
         prop = ics.parse_property("DTSTART;VALUE=DATE:20260908")
+        parsed = ics.parse_datetime(prop)
+        self.assertTrue(parsed.date_only)
+        self.assertEqual(parsed.value, dt.datetime(2026, 9, 8, 0, 0, 0))
+
+
+class DurationTests(unittest.TestCase):
+    def test_hours_minutes(self):
+        self.assertEqual(ics.parse_duration("PT1H30M"), dt.timedelta(hours=1, minutes=30))
+
