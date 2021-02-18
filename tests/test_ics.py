@@ -85,3 +85,12 @@ class DurationTests(unittest.TestCase):
         with self.assertRaises(ics.ICSError):
             ics.parse_duration("90m")
 
+
+class RRuleTests(unittest.TestCase):
+    def test_weekly_with_byday(self):
+        rule = ics.parse_rrule("FREQ=WEEKLY;BYDAY=MO,WE;COUNT=6")
+        self.assertEqual(rule.freq, "WEEKLY")
+        self.assertEqual(rule.count, 6)
+        self.assertEqual(rule.byday, ["MO", "WE"])
+        self.assertTrue(rule.expandable)
+
