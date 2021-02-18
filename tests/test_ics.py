@@ -57,3 +57,12 @@ class DateTimeTests(unittest.TestCase):
         parsed = ics.parse_datetime(prop)
         self.assertTrue(parsed.is_utc)
         self.assertEqual(parsed.value, dt.datetime(2026, 9, 7, 9, 0, 0))
+
+    def test_tzid_recorded_not_applied(self):
+        prop = ics.parse_property("DTSTART;TZID=America/New_York:20260908T090000")
+        parsed = ics.parse_datetime(prop)
+        self.assertEqual(parsed.tzid, "America/New_York")
+        self.assertEqual(parsed.value, dt.datetime(2026, 9, 8, 9, 0, 0))
+
+    def test_date_only(self):
+        prop = ics.parse_property("DTSTART;VALUE=DATE:20260908")
