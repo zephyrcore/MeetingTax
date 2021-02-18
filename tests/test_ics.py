@@ -75,3 +75,13 @@ class DurationTests(unittest.TestCase):
     def test_hours_minutes(self):
         self.assertEqual(ics.parse_duration("PT1H30M"), dt.timedelta(hours=1, minutes=30))
 
+    def test_days(self):
+        self.assertEqual(ics.parse_duration("P2D"), dt.timedelta(days=2))
+
+    def test_negative(self):
+        self.assertEqual(ics.parse_duration("-PT15M"), dt.timedelta(minutes=-15))
+
+    def test_bad_value_raises(self):
+        with self.assertRaises(ics.ICSError):
+            ics.parse_duration("90m")
+
