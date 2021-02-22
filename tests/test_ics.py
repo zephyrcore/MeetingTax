@@ -112,3 +112,12 @@ class CalendarTests(unittest.TestCase):
             "SUMMARY:One\r\n"
             "DTSTART:20260907T090000\r\n"
             "DTEND:20260907T093000\r\n"
+            "BEGIN:VALARM\r\n"
+            "ACTION:DISPLAY\r\n"
+            "END:VALARM\r\n"
+            "END:VEVENT\r\n"
+            "END:VCALENDAR\r\n"
+        )
+        events = ics.parse_calendar(text)
+        self.assertEqual(len(events), 1)
+        self.assertEqual(events[0].uid, "a@x")
