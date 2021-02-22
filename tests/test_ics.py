@@ -103,3 +103,12 @@ class RRuleTests(unittest.TestCase):
         self.assertEqual(rule.until, dt.datetime(2026, 9, 10, 9, 0, 0))
 
 
+class CalendarTests(unittest.TestCase):
+    def test_extracts_only_vevents(self):
+        text = (
+            "BEGIN:VCALENDAR\r\n"
+            "BEGIN:VEVENT\r\n"
+            "UID:a@x\r\n"
+            "SUMMARY:One\r\n"
+            "DTSTART:20260907T090000\r\n"
+            "DTEND:20260907T093000\r\n"
