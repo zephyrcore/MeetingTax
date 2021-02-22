@@ -94,3 +94,12 @@ class RRuleTests(unittest.TestCase):
         self.assertEqual(rule.byday, ["MO", "WE"])
         self.assertTrue(rule.expandable)
 
+    def test_monthly_not_expandable(self):
+        rule = ics.parse_rrule("FREQ=MONTHLY;COUNT=4")
+        self.assertFalse(rule.expandable)
+
+    def test_until_parsed(self):
+        rule = ics.parse_rrule("FREQ=DAILY;UNTIL=20260910T090000Z")
+        self.assertEqual(rule.until, dt.datetime(2026, 9, 10, 9, 0, 0))
+
+
