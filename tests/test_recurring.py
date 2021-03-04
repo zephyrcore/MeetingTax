@@ -19,3 +19,8 @@ class RecurringTests(unittest.TestCase):
             "DTSTART:20260907T093000\r\n"
             "DTEND:20260907T100000\r\n"
             "ORGANIZER;CN=Ada:mailto:ada@x\r\n"
+            "ATTENDEE;CN=Bao:mailto:bao@x\r\n"
+            "RRULE:FREQ=WEEKLY;BYDAY=MO;COUNT=6\r\n"
+            "END:VEVENT\r\n"
+        )
+        stale = stale_series(events)
