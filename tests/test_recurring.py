@@ -14,3 +14,8 @@ class RecurringTests(unittest.TestCase):
     def test_weekly_series_is_stale(self):
         events = _cal(
             "BEGIN:VEVENT\r\n"
+            "UID:w@x\r\n"
+            "SUMMARY:Standup\r\n"
+            "DTSTART:20260907T093000\r\n"
+            "DTEND:20260907T100000\r\n"
+            "ORGANIZER;CN=Ada:mailto:ada@x\r\n"
