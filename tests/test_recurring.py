@@ -24,3 +24,8 @@ class RecurringTests(unittest.TestCase):
             "END:VEVENT\r\n"
         )
         stale = stale_series(events)
+        self.assertEqual(len(stale), 1)
+        self.assertEqual(stale[0].freq, "WEEKLY")
+        self.assertEqual(stale[0].duration_minutes, 30)
+        self.assertEqual(stale[0].attendee_count, 2)
+
