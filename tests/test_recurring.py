@@ -29,3 +29,8 @@ class RecurringTests(unittest.TestCase):
         self.assertEqual(stale[0].duration_minutes, 30)
         self.assertEqual(stale[0].attendee_count, 2)
 
+    def test_monthly_series_not_judged(self):
+        events = _cal(
+            "BEGIN:VEVENT\r\n"
+            "UID:m@x\r\n"
+            "SUMMARY:Monthly\r\n"
