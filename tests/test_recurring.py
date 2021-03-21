@@ -34,3 +34,8 @@ class RecurringTests(unittest.TestCase):
             "BEGIN:VEVENT\r\n"
             "UID:m@x\r\n"
             "SUMMARY:Monthly\r\n"
+            "DTSTART:20260907T140000\r\n"
+            "DTEND:20260907T150000\r\n"
+            "ORGANIZER;CN=Ada:mailto:ada@x\r\n"
+            "RRULE:FREQ=MONTHLY;COUNT=4\r\n"
+            "END:VEVENT\r\n"
