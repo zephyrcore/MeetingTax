@@ -44,3 +44,8 @@ class RecurringTests(unittest.TestCase):
         self.assertEqual(len(series), 1)
         self.assertFalse(series[0].stale)
         self.assertFalse(series[0].expanded)
+
+    def test_non_recurring_ignored(self):
+        events = _cal(
+            "BEGIN:VEVENT\r\n"
+            "UID:o@x\r\n"
