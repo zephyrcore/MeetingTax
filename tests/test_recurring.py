@@ -39,3 +39,8 @@ class RecurringTests(unittest.TestCase):
             "ORGANIZER;CN=Ada:mailto:ada@x\r\n"
             "RRULE:FREQ=MONTHLY;COUNT=4\r\n"
             "END:VEVENT\r\n"
+        )
+        series = analyse(events)
+        self.assertEqual(len(series), 1)
+        self.assertFalse(series[0].stale)
+        self.assertFalse(series[0].expanded)
