@@ -12,3 +12,7 @@ Chen Wei.
 
 - A fragmented day for Ada on 2026-09-07: six short meetings scattered from
   09:00 to 16:00 so that no free stretch reaches two hours.
+- A protected day on 2026-09-08: a single short meeting leaves a long
+  uninterrupted block.
+- Meetings that fill exact 30 and 60 minute slots, so the load report can count
+  meetings that could plausibly have been shorter.
