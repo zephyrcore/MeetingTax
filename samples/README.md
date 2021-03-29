@@ -16,3 +16,7 @@ Chen Wei.
   uninterrupted block.
 - Meetings that fill exact 30 and 60 minute slots, so the load report can count
   meetings that could plausibly have been shorter.
+- A DTSTART and DTEND carrying a `TZID=America/New_York` parameter, to show that
+  the tool records the timezone hint but reads the wall-clock value.
+- A folded SUMMARY line (a value continued onto a second line with a leading
+  space), to exercise line unfolding.
