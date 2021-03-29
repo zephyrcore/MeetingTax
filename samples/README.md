@@ -20,3 +20,7 @@ Chen Wei.
   the tool records the timezone hint but reads the wall-clock value.
 - A folded SUMMARY line (a value continued onto a second line with a leading
   space), to exercise line unfolding.
+- An escaped comma in one SUMMARY (`Roadmap check\, part two`).
+- A stale weekly recurring standup with `RRULE:FREQ=WEEKLY;BYDAY=MO;COUNT=6`
+  involving all three people.
+- A monthly review with `RRULE:FREQ=MONTHLY;COUNT=4`, a rule this tool does not
