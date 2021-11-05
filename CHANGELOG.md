@@ -21,4 +21,4 @@ Initial release.
   stale weekly recurring meeting.
 - A focus fragmentation data graphic and a wordmark logo.
 
-<!-- draft note 245 -->
+<!-- draft note 246 -->
