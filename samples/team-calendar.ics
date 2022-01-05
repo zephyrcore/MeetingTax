@@ -7,3 +7,13 @@ UID:frag-0900@meetingtax.example
 SUMMARY:Standup sync
 DTSTART:20260907T090000
 DTEND:20260907T093000
+ORGANIZER;CN=Ada Lovelace:mailto:ada@example.org
+ATTENDEE;CN=Bao Nguyen:mailto:bao@example.org
+END:VEVENT
+BEGIN:VEVENT
+UID:frag-1000@meetingtax.example
+SUMMARY:Design review
+DTSTART:20260907T100000
+DTEND:20260907T103000
+ORGANIZER;CN=Ada Lovelace:mailto:ada@example.org
+END:VEVENT
