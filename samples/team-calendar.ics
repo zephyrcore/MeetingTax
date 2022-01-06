@@ -17,3 +17,13 @@ DTSTART:20260907T100000
 DTEND:20260907T103000
 ORGANIZER;CN=Ada Lovelace:mailto:ada@example.org
 END:VEVENT
+BEGIN:VEVENT
+UID:frag-1100@meetingtax.example
+SUMMARY:Vendor call
+DTSTART:20260907T110000
+DTEND:20260907T113000
+ORGANIZER;CN=Ada Lovelace:mailto:ada@example.org
+END:VEVENT
+BEGIN:VEVENT
+UID:frag-1300@meetingtax.example
+SUMMARY:One to one
