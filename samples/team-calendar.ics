@@ -27,3 +27,13 @@ END:VEVENT
 BEGIN:VEVENT
 UID:frag-1300@meetingtax.example
 SUMMARY:One to one
+DTSTART:20260907T130000
+DTEND:20260907T133000
+ORGANIZER;CN=Ada Lovelace:mailto:ada@example.org
+ATTENDEE;CN=Chen Wei:mailto:chen@example.org
+END:VEVENT
+BEGIN:VEVENT
+UID:frag-1400@meetingtax.example
+SUMMARY:Roadmap check\, part two
+DTSTART:20260907T140000
+DTEND:20260907T143000
