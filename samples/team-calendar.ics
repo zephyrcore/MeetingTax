@@ -37,3 +37,13 @@ UID:frag-1400@meetingtax.example
 SUMMARY:Roadmap check\, part two
 DTSTART:20260907T140000
 DTEND:20260907T143000
+ORGANIZER;CN=Ada Lovelace:mailto:ada@example.org
+END:VEVENT
+BEGIN:VEVENT
+UID:frag-1530@meetingtax.example
+SUMMARY:Incident retro
+DTSTART:20260907T153000
+DTEND:20260907T160000
+ORGANIZER;CN=Ada Lovelace:mailto:ada@example.org
+END:VEVENT
+BEGIN:VEVENT
