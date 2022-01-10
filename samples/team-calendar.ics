@@ -58,3 +58,13 @@ BEGIN:VEVENT
 UID:bao-frag-1000@meetingtax.example
 SUMMARY:Support triage
 DTSTART:20260907T100000
+DTEND:20260907T110000
+ORGANIZER;CN=Bao Nguyen:mailto:bao@example.org
+END:VEVENT
+BEGIN:VEVENT
+UID:bao-frag-1330@meetingtax.example
+SUMMARY:Release planning that runs long and fills the
+  afternoon slot completely
+DTSTART:20260907T133000
+DTEND:20260907T150000
+ORGANIZER;CN=Bao Nguyen:mailto:bao@example.org
