@@ -68,3 +68,13 @@ SUMMARY:Release planning that runs long and fills the
 DTSTART:20260907T133000
 DTEND:20260907T150000
 ORGANIZER;CN=Bao Nguyen:mailto:bao@example.org
+END:VEVENT
+BEGIN:VEVENT
+UID:chen-protected@meetingtax.example
+SUMMARY:Quick check in
+DTSTART:20260908T160000
+DTEND:20260908T163000
+ORGANIZER;CN=Chen Wei:mailto:chen@example.org
+END:VEVENT
+BEGIN:VEVENT
+UID:weekly-standup@meetingtax.example
