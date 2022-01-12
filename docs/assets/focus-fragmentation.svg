@@ -11,3 +11,10 @@
 -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" role="img"
      aria-labelledby="title desc" width="520" height="300">
+  <title id="title">Longest daily focus block per person against a 120 minute threshold</title>
+  <desc id="desc">Horizontal bars for 2026-09-07: Ada 90 minutes below the
+    threshold, Bao 150 minutes, Chen 180 minutes. A dashed vertical line marks
+    the 120 minute focus threshold.</desc>
+
+  <rect x="0" y="0" width="520" height="300" fill="#ffffff"/>
+
