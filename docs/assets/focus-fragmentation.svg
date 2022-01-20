@@ -31,3 +31,10 @@
         font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
         font-size="11" fill="#1c2230">threshold 120 min</text>
 
+  <!-- Ada: 90 min, below threshold, accent amber. Bar length 90*1.6 = 144 -->
+  <text x="112" y="103" text-anchor="end"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="12" fill="#1c2230">Ada</text>
+  <rect x="120" y="90" width="144" height="24" rx="3" fill="#c8791a"/>
+  <text x="272" y="107"
+        font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace"
