@@ -18,3 +18,10 @@
 
   <rect x="0" y="0" width="520" height="300" fill="#ffffff"/>
 
+  <text x="24" y="34" font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="16" font-weight="600" fill="#1c2230">Longest focus block, 2026-09-07</text>
+  <text x="24" y="54" font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="12" fill="#3f4a5a">Minutes of uninterrupted time inside the 09:00 to 17:00 workday</text>
+
+  <!-- Plot area: x from 120 to 440 maps 0 to 200 minutes, 1.6px per minute. -->
+  <!-- Threshold at 120 min: 120 + 120*1.6 = 312 -->
