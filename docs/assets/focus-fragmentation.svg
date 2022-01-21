@@ -38,3 +38,10 @@
   <rect x="120" y="90" width="144" height="24" rx="3" fill="#c8791a"/>
   <text x="272" y="107"
         font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace"
+        font-size="12" fill="#1c2230">90</text>
+
+  <!-- Bao: 150 min, above threshold, green. Bar length 150*1.6 = 240 -->
+  <text x="112" y="151" text-anchor="end"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="12" fill="#1c2230">Bao</text>
+  <rect x="120" y="138" width="240" height="24" rx="3" fill="#2f7d56"/>
