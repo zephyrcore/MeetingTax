@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Palette reason: same subject as the diagram. Slate #3f4a5a is meeting-occupied
+  time, green #2f7d56 is the one free block, ink #1c2230 for the wordmark. The
+  colour split falls at the morpheme boundary of the compound name: "meeting" in
+  slate, "tax" in green, because the tax is what the meetings cost the free time.
+  The mark above the word is a literal day strip: eight equal cells for a workday,
