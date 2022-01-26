@@ -51,3 +51,10 @@
 
   <!-- Chen: 180 min, above threshold, green. Bar length 180*1.6 = 288 -->
   <text x="112" y="199" text-anchor="end"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="12" fill="#1c2230">Chen</text>
+  <rect x="120" y="186" width="288" height="24" rx="3" fill="#2f7d56"/>
+  <text x="416" y="203"
+        font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace"
+        font-size="12" fill="#1c2230">180</text>
+
