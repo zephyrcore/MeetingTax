@@ -5,3 +5,7 @@
   colour split falls at the morpheme boundary of the compound name: "meeting" in
   slate, "tax" in green, because the tax is what the meetings cost the free time.
   The mark above the word is a literal day strip: eight equal cells for a workday,
+  six slate meeting cells and one green free block, the tool's core data shape.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" role="img"
+     aria-labelledby="title desc" width="240" height="120">
