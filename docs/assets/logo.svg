@@ -17,3 +17,7 @@
   <rect x="0" y="0" width="240" height="120" fill="#ffffff"/>
 
   <!-- Day strip: 8 cells of 24 wide starting at x=24, y=24, height 20. -->
+  <rect x="24"  y="24" width="24" height="20" rx="3" fill="#3f4a5a"/>
+  <rect x="50"  y="24" width="24" height="20" rx="3" fill="#3f4a5a"/>
+  <rect x="76"  y="24" width="24" height="20" rx="3" fill="#3f4a5a"/>
+  <rect x="102" y="24" width="50" height="20" rx="3" fill="#2f7d56"/>
