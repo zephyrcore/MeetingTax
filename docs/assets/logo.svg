@@ -21,3 +21,7 @@
   <rect x="50"  y="24" width="24" height="20" rx="3" fill="#3f4a5a"/>
   <rect x="76"  y="24" width="24" height="20" rx="3" fill="#3f4a5a"/>
   <rect x="102" y="24" width="50" height="20" rx="3" fill="#2f7d56"/>
+  <rect x="154" y="24" width="24" height="20" rx="3" fill="#3f4a5a"/>
+  <rect x="180" y="24" width="24" height="20" rx="3" fill="#3f4a5a"/>
+  <rect x="206" y="24" width="10" height="20" rx="3" fill="#3f4a5a"/>
+
