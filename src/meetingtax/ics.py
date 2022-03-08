@@ -325,3 +325,46 @@ def parse_calendar(text: str) -> list[VEvent]:
                     dtend = ParsedDateTime(
                         value=dtstart.value + duration,
                         is_utc=dtstart.is_utc,
+                        tzid=dtstart.tzid,
+                    )
+                events.append(
+                    VEvent(
+                        uid=uid,
+                        summary=summary,
+                        dtstart=dtstart,
+                        dtend=dtend,
+                        attendees=list(attendees),
+                        organizer=organizer,
+                        rrule=rrule,
+                        properties=dict(props),
+                    )
+                )
+                in_event = False
+            elif in_event and depth_other > 0:
+                depth_other -= 1
+            continue
+
+        if not in_event or depth_other > 0:
+            continue
+
+        props[prop.name] = prop
+        if prop.name == "UID":
+            uid = prop.value.strip()
+        elif prop.name == "SUMMARY":
+            summary = unescape_text(prop.value)
+        elif prop.name == "DTSTART":
+            dtstart = parse_datetime(prop)
+        elif prop.name == "DTEND":
+            dtend = parse_datetime(prop)
+        elif prop.name == "DURATION":
+            duration = parse_duration(prop.value)
+        elif prop.name == "ATTENDEE":
+            attendees.append(_clean_calendar_address(prop.value, prop.params))
+        elif prop.name == "ORGANIZER":
+            organizer = _clean_calendar_address(prop.value, prop.params)
+        elif prop.name == "RRULE":
+            rrule = parse_rrule(prop.value)
+
+    if in_event:
+        raise ICSError("VEVENT was opened but never closed with END:VEVENT")
+
