@@ -121,3 +121,24 @@ def main(argv: list[str] | None = None) -> int:
         return EXIT_FINDINGS if result.skipped else EXIT_CLEAN
 
     if args.command == "focus":
+        workday = _workday_from_args(args)
+        result = expand(events)
+        days = compute_all(result.occurrences, workday)
+        people = summarise_people(days, args.threshold)
+        for line in report_mod.focus_report(people, workday, args.threshold):
+            print(line)
+        fragmented = sum(p.fragmented_days for p in people)
+        return EXIT_FINDINGS if fragmented else EXIT_CLEAN
+
+    if args.command == "recurring":
+        series = analyse(events)
+        for line in report_mod.recurring_report(series):
+            print(line)
+        stale = sum(1 for s in series if s.stale)
+        return EXIT_FINDINGS if stale else EXIT_CLEAN
+
+    parser.print_usage(sys.stderr)
+    return EXIT_USAGE
+
+
+if __name__ == "__main__":
