@@ -85,3 +85,18 @@ class ExpandTests(unittest.TestCase):
             "DTEND:20260907T143000\r\n"
             "ORGANIZER;CN=Zoe:mailto:zoe@x\r\n"
             "END:VEVENT\r\n"
+            "BEGIN:VEVENT\r\n"
+            "UID:a@x\r\n"
+            "SUMMARY:Earlier\r\n"
+            "DTSTART:20260907T090000\r\n"
+            "DTEND:20260907T093000\r\n"
+            "ORGANIZER;CN=Ada:mailto:ada@x\r\n"
+            "END:VEVENT\r\n"
+        )
+        first = [(o.attendee, o.start) for o in expand(events).occurrences]
+        second = [(o.attendee, o.start) for o in expand(events).occurrences]
+        self.assertEqual(first, second)
+        self.assertEqual(first[0][0], "Ada")
+
+
+if __name__ == "__main__":
