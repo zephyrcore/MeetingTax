@@ -58,3 +58,16 @@
         font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace"
         font-size="12" fill="#1c2230">180</text>
 
+  <!-- Baseline -->
+  <line x1="120" y1="228" x2="440" y2="228" stroke="#3f4a5a" stroke-width="1"/>
+  <text x="120" y="244"
+        font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace"
+        font-size="11" fill="#3f4a5a">0</text>
+  <text x="440" y="244" text-anchor="end"
+        font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace"
+        font-size="11" fill="#3f4a5a">200 min</text>
+
+  <text x="24" y="288"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="11" fill="#c8791a">Amber bar falls below the threshold: that day is fragmented.</text>
+</svg>
