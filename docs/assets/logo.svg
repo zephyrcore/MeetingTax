@@ -25,3 +25,10 @@
   <rect x="180" y="24" width="24" height="20" rx="3" fill="#3f4a5a"/>
   <rect x="206" y="24" width="10" height="20" rx="3" fill="#3f4a5a"/>
 
+  <!-- Wordmark -->
+  <text x="24" y="90"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="34" font-weight="700">
+    <tspan fill="#3f4a5a">meeting</tspan><tspan fill="#2f7d56">tax</tspan>
+  </text>
+</svg>
