@@ -24,3 +24,10 @@ Chen Wei.
 - A stale weekly recurring standup with `RRULE:FREQ=WEEKLY;BYDAY=MO;COUNT=6`
   involving all three people.
 - A monthly review with `RRULE:FREQ=MONTHLY;COUNT=4`, a rule this tool does not
+  expand, present so the skipped-rule reporting has something to report.
+
+## Reproducing the reported numbers
+
+The output blocks in the top level README were captured by running the CLI
+against this file with `PYTHONPATH=src`. Re-running the same commands on the
+same file reproduces them byte for byte.
