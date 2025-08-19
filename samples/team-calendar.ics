@@ -78,3 +78,21 @@ ORGANIZER;CN=Chen Wei:mailto:chen@example.org
 END:VEVENT
 BEGIN:VEVENT
 UID:weekly-standup@meetingtax.example
+SUMMARY:Weekly team standup that never changes
+DTSTART:20260907T093000
+DTEND:20260907T100000
+ORGANIZER;CN=Ada Lovelace:mailto:ada@example.org
+ATTENDEE;CN=Bao Nguyen:mailto:bao@example.org
+ATTENDEE;CN=Chen Wei:mailto:chen@example.org
+RRULE:FREQ=WEEKLY;BYDAY=MO;COUNT=6
+END:VEVENT
+BEGIN:VEVENT
+UID:monthly-review@meetingtax.example
+SUMMARY:Monthly business review
+DTSTART:20260907T140000
+DTEND:20260907T150000
+ORGANIZER;CN=Chen Wei:mailto:chen@example.org
+ATTENDEE;CN=Ada Lovelace:mailto:ada@example.org
+RRULE:FREQ=MONTHLY;COUNT=4
+END:VEVENT
+END:VCALENDAR
