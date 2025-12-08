@@ -59,3 +59,15 @@ class SummariseTests(unittest.TestCase):
             _occ("Ada", 11, 0, 11, 30),
             _occ("Ada", 13, 0, 13, 30),
             _occ("Ada", 14, 0, 14, 30),
+            _occ("Ada", 15, 30, 16, 0),
+        ]
+        occs_clear = [_occ("Ada", 9, 0, 9, 30, day=dt.date(2026, 9, 8))]
+        days = compute_all(occs_frag + occs_clear, Workday())
+        people = summarise_people(days, threshold_minutes=120)
+        ada = people[0]
+        self.assertEqual(ada.fragmented_days, 1)
+        self.assertEqual(ada.best_longest_free_minutes, 450)
+
+
+if __name__ == "__main__":
+    unittest.main()
