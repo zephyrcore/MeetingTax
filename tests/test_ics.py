@@ -121,3 +121,24 @@ class CalendarTests(unittest.TestCase):
         events = ics.parse_calendar(text)
         self.assertEqual(len(events), 1)
         self.assertEqual(events[0].uid, "a@x")
+        self.assertEqual(events[0].summary, "One")
+
+    def test_duration_used_when_no_dtend(self):
+        text = (
+            "BEGIN:VEVENT\r\n"
+            "UID:b@x\r\n"
+            "DTSTART:20260907T090000\r\n"
+            "DURATION:PT45M\r\n"
+            "END:VEVENT\r\n"
+        )
+        events = ics.parse_calendar(text)
+        self.assertEqual(events[0].dtend.value, dt.datetime(2026, 9, 7, 9, 45, 0))
+
+    def test_unclosed_event_raises(self):
+        text = "BEGIN:VEVENT\r\nUID:c@x\r\n"
+        with self.assertRaises(ics.ICSError):
+            ics.parse_calendar(text)
+
+
+if __name__ == "__main__":
+    unittest.main()
