@@ -49,3 +49,14 @@ class RecurringTests(unittest.TestCase):
         events = _cal(
             "BEGIN:VEVENT\r\n"
             "UID:o@x\r\n"
+            "SUMMARY:One off\r\n"
+            "DTSTART:20260907T140000\r\n"
+            "DTEND:20260907T150000\r\n"
+            "ORGANIZER;CN=Ada:mailto:ada@x\r\n"
+            "END:VEVENT\r\n"
+        )
+        self.assertEqual(analyse(events), [])
+
+
+if __name__ == "__main__":
+    unittest.main()
