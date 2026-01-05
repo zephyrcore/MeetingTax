@@ -160,3 +160,33 @@ def expand(events: list[VEvent]) -> ExpansionResult:
         rule = event.rrule
         if rule is not None and not rule.expandable:
             result.skipped.append(
+                SkippedRecurrence(
+                    uid=event.uid,
+                    summary=event.summary,
+                    freq=rule.freq or "UNKNOWN",
+                    reason=(
+                        "FREQ=" + (rule.freq or "UNKNOWN") + " is not expanded; "
+                        "only the first instance is counted"
+                    ),
+                )
+            )
+
+        for start in _base_dates(event):
+            end = start + duration
+            for person in people:
+                result.occurrences.append(
+                    Occurrence(
+                        uid=event.uid,
+                        summary=event.summary,
+                        attendee=person,
+                        start=start,
+                        end=end,
+                        from_recurrence=rule is not None and rule.expandable,
+                    )
+                )
+
+    result.occurrences.sort(key=lambda o: (o.attendee, o.start, o.uid))
+    result.skipped.sort(key=lambda s: (s.uid, s.summary))
+    return result
+
+# draft note 904
