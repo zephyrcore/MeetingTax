@@ -154,3 +154,29 @@ class PersonFocus:
         return max((d.longest_free_minutes for d in self.days), default=0)
 
     @property
+    def fragmented_days(self) -> int:
+        """Days whose longest free block is below the declared threshold."""
+        return sum(
+            1 for d in self.days if d.longest_free_minutes < self.threshold_minutes
+        )
+
+
+def summarise_people(
+    days: list[DayFocus], threshold_minutes: int
+) -> list[PersonFocus]:
+    """Group per day focus into a per person summary."""
+    by_person: dict[str, list[DayFocus]] = {}
+    for day in days:
+        by_person.setdefault(day.attendee, []).append(day)
+    people = [
+        PersonFocus(
+            attendee=name,
+            days=sorted(day_list, key=lambda d: d.day),
+            threshold_minutes=threshold_minutes,
+        )
+        for name, day_list in by_person.items()
+    ]
+    people.sort(key=lambda p: p.attendee)
+    return people
+
+# draft note 905
