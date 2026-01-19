@@ -179,4 +179,4 @@ def summarise_people(
     people.sort(key=lambda p: p.attendee)
     return people
 
-# draft note 905
+# draft note 909
