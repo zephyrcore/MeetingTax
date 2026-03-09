@@ -419,3 +419,57 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
 The suite has 36 tests across four files. They cover line unfolding and its
+single whitespace rule, parameter parsing including quoted values, TEXT
+unescaping, DATE and DATE-TIME parsing with UTC and TZID variants, DURATION
+parsing including a negative duration, RRULE parsing for the supported and
+unsupported cases, VEVENT extraction that ignores nested VALARM blocks, duration
+used when DTEND is absent, an unclosed VEVENT raising an error, occurrence
+expansion for single meetings and for daily and weekly rules, the skipping of
+unsupported rules while keeping the first instance, deterministic ordering, free
+block computation for empty, single block, scattered, overlapping, and
+out-of-window cases, the fragmented day count against a threshold, and stale
+series detection.
+
+The SVG assets both parse as XML and contain none of the forbidden filter
+elements. The numbers in the focus fragmentation graphic come from the focus
+report shown above: Ada 90 minutes, Bao 150 minutes, Chen 180 minutes on
+2026-09-07, against a 120 minute threshold.
+
+## Limitations
+
+- Time zones are not converted. A TZID or a trailing Z is recorded but the
+  wall-clock value is used. A meeting scheduled across zones is placed by its
+  literal clock time, which can be wrong for a genuinely remote attendee.
+- Only DAILY and WEEKLY recurrence is expanded. MONTHLY and YEARLY rules are
+  counted once and listed as skipped. EXDATE and RDATE are not read, so
+  cancellations and one off additions in a recurring series are not reflected.
+- Unbounded recurrences are expanded only to a fixed step horizon, so a truly
+  endless series is not projected forever.
+- The could-be-shorter count is a heuristic based on round slot lengths. It does
+  not know whether any particular meeting needed its full time.
+- The staleness check treats any expanded repeating series as unchanging,
+  because the source carries one attendee set and one duration per series. It
+  does not compare separate VEVENTs that share a summary.
+- All day events (VALUE=DATE with no time) are parsed but carry no clock span, so
+  they do not contribute busy time to the focus calculation.
+- The tool reads VEVENT only. VTODO, VJOURNAL, and VFREEBUSY are ignored.
+
+## Roadmap
+
+Planned, without dates.
+
+- Read EXDATE and RDATE so cancellations and additions in a recurring series are
+  respected.
+- An option to treat back to back meetings as a single busy stretch with no
+  recovery gap, versus inserting a configurable recovery buffer around each
+  meeting.
+- A diff subcommand that compares two runs and reports which person days got more
+  or less fragmented.
+- Optional time zone conversion for teams that want a shared timeline, kept off
+  by default.
+
+## License
+
+MIT. See [LICENSE](LICENSE). Copyright 2026 Zephyr.
+
+<!-- draft note 918 -->
