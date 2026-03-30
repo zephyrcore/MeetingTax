@@ -82,4 +82,4 @@ def stale_series(events: list[VEvent]) -> list[RecurringSeries]:
     """Just the series judged stale, for callers that want the finding set."""
     return [s for s in analyse(events) if s.stale]
 
-# draft note 919
+# draft note 922
