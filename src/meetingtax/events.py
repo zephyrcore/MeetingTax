@@ -189,4 +189,4 @@ def expand(events: list[VEvent]) -> ExpansionResult:
     result.skipped.sort(key=lambda s: (s.uid, s.summary))
     return result
 
-# draft note 911
+# draft note 926
