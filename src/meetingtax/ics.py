@@ -370,4 +370,4 @@ def parse_calendar(text: str) -> list[VEvent]:
 
     return events
 
-# draft note 936
+# draft note 943
