@@ -188,5 +188,3 @@ def expand(events: list[VEvent]) -> ExpansionResult:
     result.occurrences.sort(key=lambda o: (o.attendee, o.start, o.uid))
     result.skipped.sort(key=lambda s: (s.uid, s.summary))
     return result
-
-# draft note 926
