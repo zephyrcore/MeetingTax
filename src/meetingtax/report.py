@@ -139,3 +139,27 @@ def focus_report(
 
 
 def recurring_report(series) -> list[str]:
+    """List recurring series and mark the stale ones."""
+    lines: list[str] = []
+    lines.append("meetingtax recurring report")
+    lines.append("")
+    if not series:
+        lines.append("no recurring series found")
+        return lines
+
+    for s in series:
+        state = "STALE" if s.stale else ("skipped" if not s.expanded else "ok")
+        lines.append(
+            s.uid
+            + "  " + s.freq
+            + " interval=" + str(s.interval)
+            + "  attendees=" + str(s.attendee_count)
+            + "  duration=" + _fmt_hm(s.duration_minutes)
+            + "  " + state
+        )
+        lines.append("    " + s.summary)
+
+    stale_count = sum(1 for s in series if s.stale)
+    lines.append("")
+    lines.append("stale series: " + str(stale_count))
+    return lines
