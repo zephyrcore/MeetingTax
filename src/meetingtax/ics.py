@@ -369,5 +369,3 @@ def parse_calendar(text: str) -> list[VEvent]:
         raise ICSError("VEVENT was opened but never closed with END:VEVENT")
 
     return events
-
-# draft note 953
