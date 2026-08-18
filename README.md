@@ -472,4 +472,4 @@ Planned, without dates.
 
 MIT. See [LICENSE](LICENSE). Copyright 2026 Zephyr.
 
-<!-- draft note 973 -->
+<!-- draft note 981 -->
