@@ -471,5 +471,3 @@ Planned, without dates.
 ## License
 
 MIT. See [LICENSE](LICENSE). Copyright 2026 Zephyr.
-
-<!-- draft note 981 -->
