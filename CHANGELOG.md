@@ -20,5 +20,3 @@ Initial release.
 - Hand authored sample fixture with a fragmented day, a protected day, and a
   stale weekly recurring meeting.
 - A focus fragmentation data graphic and a wordmark logo.
-
-<!-- draft note 982 -->
