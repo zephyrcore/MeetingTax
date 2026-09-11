@@ -1,28 +1,24 @@
-<table border="0">
-<tr>
-<td>
+<div align="center">
 
-# meetingtax
+<img src="docs/assets/logo.svg" width="200" alt="MeetingTax logo" />
 
-meetingtax reads a calendar export in iCalendar format and measures what
-meetings cost a team in attention, not only in hours. It reports total meeting
-hours, meetings that could have been shorter, stale recurring invites, and above
-all how badly each person's day is fragmented.
+# MeetingTax
 
-</td>
-<td>
+**What meetings really cost a team** - read a calendar's .ics export and measure meeting hours, stale recurring invites, and how badly each day's focus is fragmented.
 
-<img src="docs/assets/logo.svg" width="200"
- alt="meetingtax wordmark with meeting in slate and tax in green above a day strip of meeting cells and one free block" />
+[![ci](https://github.com/zephyrcore/MeetingTax/actions/workflows/ci.yml/badge.svg)](https://github.com/zephyrcore/MeetingTax/actions/workflows/ci.yml)
+![license](https://img.shields.io/badge/license-MIT-blue)
+![python](https://img.shields.io/badge/python-3.11%2B-blue)
 
-</td>
-</tr>
-</table>
+</div>
+
+---
+
 
 An hour lost to a meeting is an hour. An hour of focus split into four pieces by
 meetings scattered through the day is worth far less than an uninterrupted hour,
 because the cost of context switching is real and it does not show up in a total
-of booked hours. meetingtax exists to make that hidden cost visible. It takes the
+of booked hours. MeetingTax exists to make that hidden cost visible. It takes the
 `.ics` file your calendar can export and answers a plain question for each
 person: what was the longest stretch of the workday you could actually have
 concentrated, and how many days did that stretch never reach a length you
@@ -66,7 +62,7 @@ the longer stretch after to recover the thread of the interrupted work. A day
 diced into small pieces is nearly useless for anything that needs sustained
 attention, even when the raw meeting hours look modest.
 
-meetingtax measures the shape, not just the total. It finds the longest
+MeetingTax measures the shape, not just the total. It finds the longest
 uninterrupted free block each person had on each day, compares it against a
 threshold you declare, and counts the days that fall short. It also surfaces the
 two habits that quietly generate fragmentation: meetings booked to a round slot
@@ -75,7 +71,7 @@ revisited since they were created.
 
 ## What it measures
 
-meetingtax reports four things.
+MeetingTax reports four things.
 
 1. Total meeting hours across everyone, and per person.
 2. The count of meetings that fill a standard slot and could plausibly have been
@@ -90,7 +86,7 @@ that explains it.
 
 ## Install
 
-meetingtax targets Python 3.11 and uses only the standard library. There are no
+MeetingTax targets Python 3.11 and uses only the standard library. There are no
 third party runtime dependencies and the code makes no network calls.
 
 You can run it straight from a checkout without installing anything, by putting
@@ -268,7 +264,7 @@ fragmented day against the threshold. Ada's bar is the one that falls short.
 
 ## Recurrence support and its honest limits
 
-meetingtax expands the two recurrence frequencies that cover most standing
+MeetingTax expands the two recurrence frequencies that cover most standing
 meetings, and it refuses to guess at the rest.
 
 Supported and expanded:
