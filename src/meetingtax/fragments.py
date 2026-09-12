@@ -26,6 +26,18 @@ class Workday:
     end_hour: int = 17
     end_minute: int = 0
 
+    def __post_init__(self) -> None:
+        for name, value, hi in (
+            ("start_hour", self.start_hour, 23),
+            ("end_hour", self.end_hour, 23),
+            ("start_minute", self.start_minute, 59),
+            ("end_minute", self.end_minute, 59),
+        ):
+            if not 0 <= value <= hi:
+                raise ValueError(f"{name} out of range: {value}")
+        if self.total_minutes <= 0:
+            raise ValueError("workday window must end after it starts")
+
     def window(self, day: _dt.date) -> tuple[_dt.datetime, _dt.datetime]:
         start = _dt.datetime(
             day.year, day.month, day.day, self.start_hour, self.start_minute

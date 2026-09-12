@@ -46,7 +46,9 @@ def analyse(events: list[VEvent]) -> list[RecurringSeries]:
             continue
         if event.dtstart is None or event.dtend is None:
             continue
-        duration = int((event.dtend.value - event.dtstart.value).total_seconds() // 60)
+        duration = max(
+            0, int((event.dtend.value - event.dtstart.value).total_seconds() // 60)
+        )
         organizer_set = {event.organizer} if event.organizer else set()
         attendee_count = len(set(event.attendees) | organizer_set)
         instances = _instance_count(rule)
@@ -55,7 +57,7 @@ def analyse(events: list[VEvent]) -> list[RecurringSeries]:
                 uid=event.uid,
                 summary=event.summary,
                 freq=rule.freq or "UNKNOWN",
-                interval=rule.interval,
+                interval=max(1, rule.interval),
                 attendee_count=attendee_count,
                 duration_minutes=duration,
                 instances=instances,

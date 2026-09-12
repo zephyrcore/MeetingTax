@@ -69,5 +69,18 @@ class SummariseTests(unittest.TestCase):
         self.assertEqual(ada.best_longest_free_minutes, 450)
 
 
+class WorkdayValidationTests(unittest.TestCase):
+    def test_hour_out_of_range_rejected(self):
+        with self.assertRaises(ValueError):
+            Workday(start_hour=25)
+
+    def test_inverted_window_rejected(self):
+        with self.assertRaises(ValueError):
+            Workday(start_hour=17, end_hour=9)
+
+    def test_custom_window_minutes(self):
+        self.assertEqual(Workday(8, 30, 18, 0).total_minutes, 570)
+
+
 if __name__ == "__main__":
     unittest.main()
